@@ -1,0 +1,19 @@
+The manifests here describe models published by other people. Summo does not own
+them and, for most of them, does not host them either — a manifest points at the
+upstream URL, and the app downloads from there.
+
+Two fields in every manifest carry the obligations:
+
+  license         SPDX identifier for the model's own terms.
+  attribution     Who published it. Required for attribution licences such as
+                  CC-BY-4.0, and CI refuses a manifest that omits it.
+
+A manifest may also set `redistributable: false`, meaning Summo may not host or
+mirror the files. Those manifests must point at upstream only, and CI rejects one
+that references a Summo CDN.
+
+Models currently described:
+
+  silero-vad-v5   MIT              snakers4/silero-vad
+  whisper-tiny    MIT              OpenAI Whisper, ONNX export by csukuangfj
+  campplus-sv     Apache-2.0       3D-Speaker (Alibaba DAMO), export by csukuangfj

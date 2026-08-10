@@ -1,0 +1,95 @@
+name: Validate manifests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  schema:
+    name: schema and licence rules
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: summo-app/summo
+          path: summo
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: summo
+
+      # Rejects a missing licence, a malformed digest, a file name that could escape the model
+      # directory, and a non-redistributable model pointed at our own CDN.
+      - name: Check every manifest
+        working-directory: summo
+        run: cargo run --quiet -p summo-cli -- registry check ${{ github.workspace }}
+
+  reachable:
+    name: files exist and match their digests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # A manifest whose files 404 is worse than no manifest: the app offers a model and then fails
+      # halfway through a download.
+      - name: Fetch and verify
+        run: |
+          python3 - <<'PY'
+          import glob, hashlib, json, sys, urllib.request
+
+          failures = []
+          for path in sorted(glob.glob("models/*.json")):
+              manifest = json.load(open(path))
+              for entry in manifest["files"]:
+                  urls = [entry["url"], *entry.get("mirror", [])]
+                  for url in urls:
+                      try:
+                          with urllib.request.urlopen(url, timeout=120) as response:
+                              body = response.read()
+                          break
+                      except Exception as error:  # noqa: BLE001
+                          print(f"  {url}: {error}")
+                  else:
+                      failures.append(f"{manifest['id']}/{entry['name']}: no source reachable")
+                      continue
+
+                  digest = hashlib.sha256(body).hexdigest()
+                  if digest != entry["sha256"]:
+                      failures.append(
+                          f"{manifest['id']}/{entry['name']}: digest {digest} != {entry['sha256']}"
+                      )
+                  elif len(body) != entry["size"]:
+                      failures.append(
+                          f"{manifest['id']}/{entry['name']}: size {len(body)} != {entry['size']}"
+                      )
+                  else:
+                      print(f"ok {manifest['id']}/{entry['name']}")
+
+          for failure in failures:
+              print(f"FAIL {failure}")
+          sys.exit(1 if failures else 0)
+          PY
+
+  index:
+    name: index matches the manifests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # The index is what the app lists before fetching anything, so an entry missing from it makes
+      # a model invisible even though its manifest is perfectly valid.
+      - run: |
+          python3 - <<'PY'
+          import glob, json, os, sys
+
+          index = {m["id"] for m in json.load(open("index.json"))["models"]}
+          files = {os.path.basename(p)[:-5] for p in glob.glob("models/*.json")}
+
+          missing = files - index
+          extra = index - files
+          for id in sorted(missing):
+              print(f"FAIL {id} has a manifest but is not in index.json")
+          for id in sorted(extra):
+              print(f"FAIL {id} is in index.json but has no manifest")
+          sys.exit(1 if missing or extra else 0)
+          PY
