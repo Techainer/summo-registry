@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "id": "gipformer-65m",
+  "name": "Gipformer 65M · Vietnamese",
+  "task": "asr",
+  "mode": "live",
+  "runtime": "sherpa-onnx/transducer-offline",
+  "langs": [
+    "vi"
+  ],
+  "license": "MIT",
+  "attribution": "g-group-ai-lab, Zipformer transducer trained with k2-fsa/icefall",
+  "redistributable": true,
+  "size_bytes": 73218466,
+  "description": "The Vietnamese model Summo defaults to. A 65M-parameter Zipformer transducer exported to INT8, trained on Vietnamese telephony and meeting speech. 2.4% WER on Fleurs VI against Whisper tiny's 65.5%, in a fifth of the memory — which is the whole reason a specialised model is worth having over a multilingual one.",
+  "profile": {
+    "rss_mb": {
+      "idle": 150,
+      "peak": 800
+    },
+    "min_ram_mb": 1024,
+    "rtf": {
+      "cpu_x86_avx512vnni_8t": 0.024,
+      "cpu_x86_avx2_4t": 0.06
+    },
+    "latency_ms": {
+      "first_partial": 200,
+      "finalize_p50": 300,
+      "finalize_p95": 700
+    },
+    "quality": {
+      "wer_fleurs_vi": 0.0241,
+      "cer_fleurs_vi": 0.0167
+    },
+    "accel": [
+      "cpu",
+      "coreml"
+    ]
+  },
+  "files": [
+    {
+      "name": "encoder-epoch-35-avg-6.int8.onnx",
+      "sha256": "3cc1a719f04d6051210e03833eef0d42939352c6f4704b67c34655ceecb98809",
+      "size": 70876359,
+      "url": "https://huggingface.co/g-group-ai-lab/gipformer-65M-rnnt/resolve/main/encoder-epoch-35-avg-6.int8.onnx",
+      "variant": "int8"
+    },
+    {
+      "name": "decoder-epoch-35-avg-6.int8.onnx",
+      "sha256": "2b6235b8a8be57b5ba57024f6119398a1aace6aff23347a04d59c9bd2686c1f6",
+      "size": 1308690,
+      "url": "https://huggingface.co/g-group-ai-lab/gipformer-65M-rnnt/resolve/main/decoder-epoch-35-avg-6.int8.onnx",
+      "variant": "int8"
+    },
+    {
+      "name": "joiner-epoch-35-avg-6.int8.onnx",
+      "sha256": "eb74e2ead853d64161ee7af2aa2bce5fcc64752d07f72e0683926b238296d58f",
+      "size": 1033417,
+      "url": "https://huggingface.co/g-group-ai-lab/gipformer-65M-rnnt/resolve/main/joiner-epoch-35-avg-6.int8.onnx",
+      "variant": "int8"
+    },
+    {
+      "name": "tokens.txt",
+      "sha256": "f536d03c2e95ebd2930cf0abec88e823bd17d3c1933da7ae6a82db3b80605e15",
+      "size": 25847,
+      "url": "https://huggingface.co/g-group-ai-lab/gipformer-65M-rnnt/resolve/main/tokens.txt"
+    }
+  ],
+  "params": {
+    "encoder": "encoder-epoch-35-avg-6.int8.onnx",
+    "decoder": "decoder-epoch-35-avg-6.int8.onnx",
+    "joiner": "joiner-epoch-35-avg-6.int8.onnx",
+    "tokens": "tokens.txt",
+    "num_threads": "auto"
+  },
+  "variants": [
+    {
+      "name": "int8",
+      "precision": "int8"
+    }
+  ]
+}

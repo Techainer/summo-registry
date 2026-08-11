@@ -39,4 +39,6 @@ Accelerators: cpu, coreml, cuda.
 | `tiny-encoder.int8.onnx` | 12 MB | `d24fb083ae3b1041fc24e97971d60e280c9342201fbb67b0ab428a8b4a51a434` |
 | `tiny-decoder.int8.onnx` | 86 MB | `d2fece8dd42771f1df975c6c0445770d0c292bf7547c2cae04a6c0cc57540925` |
 | `tiny-tokens.txt` | 798 KB | `b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126` |
+| `tiny-encoder.onnx` | 36 MB | `42c1d4cbf889632ba21ab6f0d4064c80209755f265ce5cd630db4a6793e7089c` |
+| `tiny-decoder.onnx` | 109 MB | `e144c07dc6b55cece24392811f2d934b97013811f5e677d1315d341a0a74a25d` |
 

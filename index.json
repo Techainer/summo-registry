@@ -14,6 +14,18 @@
       "description": "Turns a finished utterance into a voice fingerprint, so the remote lane can be split by speaker. Runs after the text is already on screen and costs single-digit milliseconds per utterance."
     },
     {
+      "id": "gipformer-65m",
+      "name": "Gipformer 65M · Vietnamese",
+      "task": "asr",
+      "mode": "live",
+      "license": "MIT",
+      "langs": [
+        "vi"
+      ],
+      "size_bytes": 73218466,
+      "description": "The Vietnamese model Summo defaults to. A 65M-parameter Zipformer transducer exported to INT8, trained on Vietnamese telephony and meeting speech. 2.4% WER on Fleurs VI against Whisper tiny's 65.5%, in a fifth of the memory — which is the whole reason a specialised model is worth having over a multilingual one."
+    },
+    {
       "id": "silero-vad-v5",
       "name": "Silero VAD v5",
       "task": "vad",
