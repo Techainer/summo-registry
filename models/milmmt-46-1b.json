@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "milmmt-46-1b",
+  "name": "MiLMMT 46 · 1B · translation",
+  "task": "translate",
+  "mode": "batch",
+  "runtime": "llama.cpp/gguf",
+  "langs": [
+    "ar", "az", "bg", "bn", "ca", "cs", "da", "de", "el", "en", "es", "fa", "fi", "fr", "he",
+    "hi", "hr", "hu", "id", "it", "ja", "kk", "km", "ko", "lo", "ms", "my", "nb", "nl", "pl",
+    "pt", "ro", "ru", "sk", "sl", "sv", "ta", "th", "tl", "tr", "ur", "uz", "vi", "yue", "zh",
+    "zh-Hant"
+  ],
+  "license": "Gemma Terms of Use",
+  "attribution": "Xiaomi Research (MiLMMT-46-1B-v1.0, built on Gemma 3 1B), GGUF conversion by mradermacher",
+  "redistributable": false,
+  "gated": false,
+  "size_bytes": 806057408,
+  "description": "Translation between 46 languages, running inside Summo — no Ollama, no second process. 806 MB on disk, about 700 ms a line on eight CPU threads, and nothing per line ever. This is what makes translation the one text feature that costs nothing: a 1B model trained for translation beats a general 8B model at it, so the expensive model stays optional and a user with no API key can still translate every meeting they record. Measured against SMALL100, the obvious smaller alternative: better on every sentence tried, at less than half the disk. Vietnamese, Japanese, Chinese, Korean and English are all in its set. Summo does not redistribute it — the file comes from the publisher under the Gemma Terms of Use, which permit commercial use and impose conditions on passing the weights on.",
+  "profile": {
+    "rss_mb": {
+      "idle": 900,
+      "peak": 1200
+    },
+    "min_ram_mb": 2048,
+    "rtf": {},
+    "latency_ms": {
+      "first_partial": 0,
+      "finalize_p50": 700,
+      "finalize_p95": 1600
+    },
+    "quality": {},
+    "accel": [
+      "cpu",
+      "metal",
+      "cuda"
+    ]
+  },
+  "files": [
+    {
+      "name": "MiLMMT-46-1B-v1.0.Q4_K_M.gguf",
+      "sha256": "74d38ba75108d455326e9deeaf9ab01bb266dfa665eae9c4aa84e84485d4fdf9",
+      "size": 806057408,
+      "url": "https://huggingface.co/mradermacher/MiLMMT-46-1B-v1.0-GGUF/resolve/main/MiLMMT-46-1B-v1.0.Q4_K_M.gguf",
+      "variant": "q4_k_m"
+    }
+  ],
+  "params": {
+    "model": "MiLMMT-46-1B-v1.0.Q4_K_M.gguf"
+  },
+  "variants": [
+    {
+      "name": "q4_k_m",
+      "precision": "int4"
+    }
+  ]
+}
