@@ -219,8 +219,8 @@
         "vi",
         "zh"
       ],
-      "size_bytes": 1866406743,
-      "description": "The small option: 330M parameters against MiLMMT's 1B, and the only translation model here that is not built on a 262 000-token embedding table — which is why it can be small at all. Quantized to int8 it is 449 MB and 377 ms a line, half the disk of the smallest usable MiLMMT and faster; the published export is fp32 and much larger, so quantize it locally (see docs/translation.md). MIT, so unlike the MiLMMT weights it may be redistributed freely. The trade is quality: on Vietnamese meeting speech it makes lexical errors MiLMMT does not — “chốt lại spec API” comes back as “closing the spec” — while still producing complete, on-topic sentences in the right language. That is still far better than any general model of comparable size: Qwen3-0.6B repeated one phrase forty times on the same test and returned nothing at all for English into Vietnamese."
+      "size_bytes": 610830253,
+      "description": "The default translator, and the small one: 330M parameters and 611 MB installed, against 806 MB for the 1B alternative — and 244 ms a line, which is the fastest of anything measured. It is the only translation model here not built on a 262 000-token embedding table, which is why it can be small at all: quantizing the 1B harder barely helps, because the table dominates the file. Exported as a separate encoder and decoder, so the twelve-layer encoder runs once per line instead of once per generated token — worth 2x on its own. MIT, so unlike the MiLMMT weights it may be redistributed freely. The trade is accuracy: on Vietnamese meeting speech it makes lexical errors the 1B does not, while still producing complete, on-topic sentences in the right language. Still far ahead of any general model of comparable size — Qwen3-0.6B repeated one phrase forty times on the same test and returned nothing at all for English into Vietnamese."
     },
     {
       "id": "whisper-tiny",
