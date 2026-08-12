@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "id": "small100",
+  "name": "SMALL100 · translation, 100 languages",
+  "task": "translate",
+  "mode": "batch",
+  "runtime": "onnx/m2m100",
+  "langs": [
+    "ar",
+    "az",
+    "bg",
+    "bn",
+    "ca",
+    "cs",
+    "da",
+    "de",
+    "el",
+    "en",
+    "es",
+    "fa",
+    "fi",
+    "fr",
+    "he",
+    "hi",
+    "hr",
+    "hu",
+    "id",
+    "it",
+    "ja",
+    "kk",
+    "km",
+    "ko",
+    "lo",
+    "ms",
+    "my",
+    "nl",
+    "no",
+    "pl",
+    "pt",
+    "ro",
+    "ru",
+    "sk",
+    "sl",
+    "sv",
+    "ta",
+    "th",
+    "tl",
+    "tr",
+    "ur",
+    "uz",
+    "vi",
+    "zh"
+  ],
+  "license": "MIT",
+  "attribution": "Alireza Mohammadshahi et al., Idiap Research Institute — SMALL100, distilled from M2M100",
+  "redistributable": true,
+  "gated": false,
+  "size_bytes": 1866406743,
+  "description": "The small option: 330M parameters against MiLMMT's 1B, and the only translation model here that is not built on a 262 000-token embedding table — which is why it can be small at all. Quantized to int8 it is 449 MB and 377 ms a line, half the disk of the smallest usable MiLMMT and faster; the published export is fp32 and much larger, so quantize it locally (see docs/translation.md). MIT, so unlike the MiLMMT weights it may be redistributed freely. The trade is quality: on Vietnamese meeting speech it makes lexical errors MiLMMT does not — “chốt lại spec API” comes back as “closing the spec” — while still producing complete, on-topic sentences in the right language. That is still far better than any general model of comparable size: Qwen3-0.6B repeated one phrase forty times on the same test and returned nothing at all for English into Vietnamese.",
+  "profile": {
+    "rss_mb": {
+      "idle": 1900,
+      "peak": 2400
+    },
+    "min_ram_mb": 3072,
+    "rtf": {},
+    "latency_ms": {
+      "first_partial": 0,
+      "finalize_p50": 780,
+      "finalize_p95": 1500
+    },
+    "quality": {},
+    "accel": [
+      "cpu",
+      "cuda"
+    ]
+  },
+  "files": [
+    {
+      "name": "model.onnx",
+      "sha256": "e9af23aff4bb7c277fcd20c94a6edef88e908b82a5af82c269f725010e6f4cc1",
+      "size": 1860275258,
+      "url": "https://huggingface.co/alirezamsh/small100/resolve/main/model.onnx",
+      "variant": "fp32"
+    },
+    {
+      "name": "sentencepiece.bpe.model",
+      "sha256": "d8f7c76ed2a5e0822be39f0a4f95a55eb19c78f4593ce609e2edbc2aea4d380a",
+      "size": 2423393,
+      "url": "https://huggingface.co/alirezamsh/small100/resolve/main/sentencepiece.bpe.model"
+    },
+    {
+      "name": "vocab.json",
+      "sha256": "b6e77e474aeea8f441363aca7614317c06381f3eacfe10fb9856d5081d1074cc",
+      "size": 3708092,
+      "url": "https://huggingface.co/alirezamsh/small100/resolve/main/vocab.json"
+    }
+  ],
+  "params": {
+    "model": "model.onnx",
+    "spm": "sentencepiece.bpe.model",
+    "vocab": "vocab.json"
+  },
+  "variants": [
+    {
+      "name": "fp32",
+      "precision": "fp32"
+    }
+  ]
+}
