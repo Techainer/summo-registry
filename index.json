@@ -26,6 +26,22 @@
       "description": "The Vietnamese model Summo defaults to. A 65M-parameter Zipformer transducer exported to INT8, trained on Vietnamese telephony and meeting speech. 2.4% WER on Fleurs VI against Whisper tiny's 65.5%, in a fifth of the memory — which is the whole reason a specialised model is worth having over a multilingual one."
     },
     {
+      "id": "sense-voice-small",
+      "name": "SenseVoice small · 中文 日本語 한국어 English",
+      "task": "asr",
+      "mode": "live",
+      "license": "FunASR Model Open Source License Agreement v1.1",
+      "langs": [
+        "zh",
+        "yue",
+        "ja",
+        "ko",
+        "en"
+      ],
+      "size_bytes": 239549735,
+      "description": "Chinese, Cantonese, Japanese, Korean and English in one 234 MB model. Non-autoregressive — one encoder pass, no decoder loop — so it is fast enough to drive live text and, unlike Whisper, has no generative decoder to invent an ending for a half-spoken sentence. Measured here at RTF 0.06 on four threads of a Xeon 6226R, which is about 2.5× the cost of the Vietnamese transducer per decode; Vietnamese is not one of its languages and gipformer-65m remains the right choice there. Accuracy has not yet been measured by summo-bench: the upstream claim is that it beats Whisper-small while running roughly five times faster, and that claim is theirs, not ours. Summo does not redistribute this model — the files come straight from the publisher under their own licence, which permits commercial use and requires attribution."
+    },
+    {
       "id": "silero-vad-v5",
       "name": "Silero VAD v5",
       "task": "vad",
