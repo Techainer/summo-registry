@@ -81,26 +81,38 @@
       "sha256": "83352cd4f325aa50715d09b10faee4e1e504a739032e5054e5526ffa64871c18",
       "size": 287336900,
       "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/encoder_int8.onnx",
-      "variant": "int8"
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/small100-v1/encoder_int8.onnx"
+      ]
     },
     {
       "name": "decoder_int8.onnx",
       "sha256": "f8b77cb2f9761cec13f1d0a9a2114f3dea8afeeed16a55d3c383c499b7d2468c",
       "size": 317361868,
       "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/decoder_int8.onnx",
-      "variant": "int8"
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/small100-v1/decoder_int8.onnx"
+      ]
     },
     {
       "name": "sentencepiece.bpe.model",
       "sha256": "d8f7c76ed2a5e0822be39f0a4f95a55eb19c78f4593ce609e2edbc2aea4d380a",
       "size": 2423393,
-      "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/sentencepiece.bpe.model"
+      "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/sentencepiece.bpe.model",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/small100-v1/sentencepiece.bpe.model"
+      ]
     },
     {
       "name": "vocab.json",
       "sha256": "b6e77e474aeea8f441363aca7614317c06381f3eacfe10fb9856d5081d1074cc",
       "size": 3708092,
-      "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/vocab.json"
+      "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/vocab.json",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/small100-v1/vocab.json"
+      ]
     }
   ],
   "params": {
