@@ -33,7 +33,10 @@
       "name": "campplus.onnx",
       "sha256": "f682b514c05d947ee3fa91cd6ec6c5c7543479a128373fa29b1faedccd21fd11",
       "size": 28281138,
-      "url": "https://huggingface.co/csukuangfj/speaker-embedding-models/resolve/main/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx"
+      "url": "https://huggingface.co/csukuangfj/speaker-embedding-models/resolve/main/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/campplus-sv-v1/campplus.onnx"
+      ]
     }
   ],
   "params": {

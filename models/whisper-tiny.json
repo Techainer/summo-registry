@@ -46,34 +46,49 @@
       "sha256": "d24fb083ae3b1041fc24e97971d60e280c9342201fbb67b0ab428a8b4a51a434",
       "size": 12937772,
       "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-encoder.int8.onnx",
-      "variant": "int8"
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/whisper-tiny-v1/tiny-encoder.int8.onnx"
+      ]
     },
     {
       "name": "tiny-decoder.int8.onnx",
       "sha256": "d2fece8dd42771f1df975c6c0445770d0c292bf7547c2cae04a6c0cc57540925",
       "size": 89855401,
       "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-decoder.int8.onnx",
-      "variant": "int8"
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/whisper-tiny-v1/tiny-decoder.int8.onnx"
+      ]
     },
     {
       "name": "tiny-tokens.txt",
       "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
       "size": 816730,
-      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-tokens.txt"
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-tokens.txt",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/whisper-tiny-v1/tiny-tokens.txt"
+      ]
     },
     {
       "name": "tiny-encoder.onnx",
       "sha256": "42c1d4cbf889632ba21ab6f0d4064c80209755f265ce5cd630db4a6793e7089c",
       "size": 37647080,
       "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-encoder.onnx",
-      "variant": "fp32"
+      "variant": "fp32",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/whisper-tiny-v1/tiny-encoder.onnx"
+      ]
     },
     {
       "name": "tiny-decoder.onnx",
       "sha256": "e144c07dc6b55cece24392811f2d934b97013811f5e677d1315d341a0a74a25d",
       "size": 114505801,
       "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-tiny/resolve/main/tiny-decoder.onnx",
-      "variant": "fp32"
+      "variant": "fp32",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/whisper-tiny-v1/tiny-decoder.onnx"
+      ]
     }
   ],
   "params": {
