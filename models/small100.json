@@ -83,7 +83,8 @@
       "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/encoder_int8.onnx",
       "variant": "int8",
       "mirror": [
-        "https://github.com/Techainer/summo-models/releases/download/small100-v1/encoder_int8.onnx"
+        "https://github.com/Techainer/summo-models/releases/download/small100-v1/encoder_int8.onnx",
+        "https://summo.techainer.com/models/small100-v1/encoder_int8.onnx"
       ]
     },
     {
@@ -93,7 +94,8 @@
       "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/decoder_int8.onnx",
       "variant": "int8",
       "mirror": [
-        "https://github.com/Techainer/summo-models/releases/download/small100-v1/decoder_int8.onnx"
+        "https://github.com/Techainer/summo-models/releases/download/small100-v1/decoder_int8.onnx",
+        "https://summo.techainer.com/models/small100-v1/decoder_int8.onnx"
       ]
     },
     {
@@ -102,7 +104,8 @@
       "size": 2423393,
       "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/sentencepiece.bpe.model",
       "mirror": [
-        "https://github.com/Techainer/summo-models/releases/download/small100-v1/sentencepiece.bpe.model"
+        "https://github.com/Techainer/summo-models/releases/download/small100-v1/sentencepiece.bpe.model",
+        "https://summo.techainer.com/models/small100-v1/sentencepiece.bpe.model"
       ]
     },
     {
@@ -111,7 +114,8 @@
       "size": 3708092,
       "url": "https://huggingface.co/lyphanthuc/small100-onnx/resolve/main/v1.0.2/vocab.json",
       "mirror": [
-        "https://github.com/Techainer/summo-models/releases/download/small100-v1/vocab.json"
+        "https://github.com/Techainer/summo-models/releases/download/small100-v1/vocab.json",
+        "https://summo.techainer.com/models/small100-v1/vocab.json"
       ]
     }
   ],

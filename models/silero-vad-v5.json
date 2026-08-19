@@ -45,7 +45,8 @@
       "size": 2327524,
       "url": "https://github.com/snakers4/silero-vad/raw/master/src/silero_vad/data/silero_vad.onnx",
       "mirror": [
-        "https://github.com/Techainer/summo-models/releases/download/silero-vad-v5-v1/silero_vad.onnx"
+        "https://github.com/Techainer/summo-models/releases/download/silero-vad-v5-v1/silero_vad.onnx",
+        "https://summo.techainer.com/models/silero-vad-v5-v1/silero_vad.onnx"
       ]
     }
   ],

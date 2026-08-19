@@ -35,7 +35,8 @@
       "size": 28281138,
       "url": "https://huggingface.co/csukuangfj/speaker-embedding-models/resolve/main/3dspeaker_speech_campplus_sv_zh-cn_16k-common.onnx",
       "mirror": [
-        "https://github.com/Techainer/summo-models/releases/download/campplus-sv-v1/campplus.onnx"
+        "https://github.com/Techainer/summo-models/releases/download/campplus-sv-v1/campplus.onnx",
+        "https://summo.techainer.com/models/campplus-sv-v1/campplus.onnx"
       ]
     }
   ],
