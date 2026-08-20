@@ -1,0 +1,74 @@
+{
+  "schema": 1,
+  "id": "whisper-base",
+  "name": "Whisper base · 99 languages",
+  "task": "asr",
+  "mode": "batch",
+  "runtime": "sherpa-onnx/whisper",
+  "langs": [
+    "*"
+  ],
+  "license": "MIT",
+  "attribution": "OpenAI Whisper, ONNX export by csukuangfj",
+  "redistributable": true,
+  "size_bytes": 160609290,
+  "description": "One step up from tiny: the same 99 languages, noticeably steadier on accents and on speech with music behind it. Runs after a recording rather than during one, so it is the model to choose when accuracy matters more than seeing words appear as they are said.",
+  "profile": {
+    "rss_mb": {
+      "idle": 300,
+      "peak": 900
+    },
+    "min_ram_mb": 1536,
+    "rtf": {},
+    "latency_ms": {
+      "first_partial": 0,
+      "finalize_p50": 1200,
+      "finalize_p95": 2600
+    },
+    "quality": {},
+    "accel": [
+      "cpu",
+      "coreml",
+      "cuda"
+    ]
+  },
+  "params": {
+    "encoder": "base-encoder.int8.onnx",
+    "decoder": "base-decoder.int8.onnx",
+    "tokens": "base-tokens.txt"
+  },
+  "files": [
+    {
+      "name": "base-encoder.int8.onnx",
+      "sha256": "0b8fb1304b6109976038efff5ace81720e00386f3ff6b54ee8c75291ca0a1e11",
+      "size": 29120534,
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/main/base-encoder.int8.onnx",
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/whisper-base-v1/base-encoder.int8.onnx",
+        "https://summo.techainer.com/models/whisper-base-v1/base-encoder.int8.onnx"
+      ]
+    },
+    {
+      "name": "base-decoder.int8.onnx",
+      "sha256": "9759d217388a01b3a4c7c15533201067b48ae819c4daafc8624e64b9409dc02d",
+      "size": 130672026,
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/main/base-decoder.int8.onnx",
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/whisper-base-v1/base-decoder.int8.onnx",
+        "https://summo.techainer.com/models/whisper-base-v1/base-decoder.int8.onnx"
+      ]
+    },
+    {
+      "name": "base-tokens.txt",
+      "sha256": "b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126",
+      "size": 816730,
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-whisper-base/resolve/main/base-tokens.txt",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/whisper-base-v1/base-tokens.txt",
+        "https://summo.techainer.com/models/whisper-base-v1/base-tokens.txt"
+      ]
+    }
+  ]
+}
