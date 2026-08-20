@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "id": "zipformer-en",
+  "name": "Zipformer · English",
+  "task": "asr",
+  "mode": "live",
+  "runtime": "sherpa-onnx/transducer-offline",
+  "langs": [
+    "en"
+  ],
+  "license": "Apache-2.0",
+  "attribution": "k2-fsa/icefall, trained on LibriSpeech and GigaSpeech, ONNX export by csukuangfj",
+  "redistributable": true,
+  "size_bytes": 70350183,
+  "description": "English, and fast enough to put words on screen while somebody is still talking. A transducer rather than an encoder-decoder, which is what makes it usable live: it commits an utterance as soon as the speaker stops instead of re-reading the whole segment.",
+  "profile": {
+    "rss_mb": {
+      "idle": 200,
+      "peak": 900
+    },
+    "min_ram_mb": 1024,
+    "rtf": {},
+    "latency_ms": {
+      "first_partial": 250,
+      "finalize_p50": 350,
+      "finalize_p95": 800
+    },
+    "quality": {},
+    "accel": [
+      "cpu",
+      "coreml"
+    ]
+  },
+  "params": {
+    "encoder": "encoder-epoch-99-avg-1.int8.onnx",
+    "decoder": "decoder-epoch-99-avg-1.int8.onnx",
+    "joiner": "joiner-epoch-99-avg-1.int8.onnx",
+    "tokens": "tokens.txt"
+  },
+  "files": [
+    {
+      "name": "encoder-epoch-99-avg-1.int8.onnx",
+      "sha256": "52a48f46c17b19a36fe3927c4d59479bb16eeb2493313ed82c4bf775c2cb8bc8",
+      "size": 68778564,
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-zipformer-en-2023-06-26/resolve/main/encoder-epoch-99-avg-1.int8.onnx",
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/zipformer-en-v1/encoder-epoch-99-avg-1.int8.onnx",
+        "https://summo.techainer.com/models/zipformer-en-v1/encoder-epoch-99-avg-1.int8.onnx"
+      ]
+    },
+    {
+      "name": "decoder-epoch-99-avg-1.int8.onnx",
+      "sha256": "783cd6b23b8db8e14a43804ecf972ae96e71499cce799e334ab95c961800d797",
+      "size": 1307236,
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-zipformer-en-2023-06-26/resolve/main/decoder-epoch-99-avg-1.int8.onnx",
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/zipformer-en-v1/decoder-epoch-99-avg-1.int8.onnx",
+        "https://summo.techainer.com/models/zipformer-en-v1/decoder-epoch-99-avg-1.int8.onnx"
+      ]
+    },
+    {
+      "name": "joiner-epoch-99-avg-1.int8.onnx",
+      "sha256": "48de5d6467a2ab1e72cb5c4d828330be06524d877bc458118b6a4198ca031357",
+      "size": 259335,
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-zipformer-en-2023-06-26/resolve/main/joiner-epoch-99-avg-1.int8.onnx",
+      "variant": "int8",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/zipformer-en-v1/joiner-epoch-99-avg-1.int8.onnx",
+        "https://summo.techainer.com/models/zipformer-en-v1/joiner-epoch-99-avg-1.int8.onnx"
+      ]
+    },
+    {
+      "name": "tokens.txt",
+      "sha256": "49e3c2646595fd907228b3c6787069658f67b17377c60aeb8619c4551b2316fb",
+      "size": 5048,
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-zipformer-en-2023-06-26/resolve/main/tokens.txt",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/zipformer-en-v1/tokens.txt",
+        "https://summo.techainer.com/models/zipformer-en-v1/tokens.txt"
+      ]
+    }
+  ]
+}

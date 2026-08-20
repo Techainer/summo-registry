@@ -223,6 +223,18 @@
       "description": "The default translator, and the small one: 330M parameters and 611 MB installed, against 806 MB for the 1B alternative — and 244 ms a line, which is the fastest of anything measured. It is the only translation model here not built on a 262 000-token embedding table, which is why it can be small at all: quantizing the 1B harder barely helps, because the table dominates the file. Exported as a separate encoder and decoder, so the twelve-layer encoder runs once per line instead of once per generated token — worth 2x on its own. MIT, so unlike the MiLMMT weights it may be redistributed freely. The trade is accuracy: on Vietnamese meeting speech it makes lexical errors the 1B does not, while still producing complete, on-topic sentences in the right language. Still far ahead of any general model of comparable size — Qwen3-0.6B repeated one phrase forty times on the same test and returned nothing at all for English into Vietnamese."
     },
     {
+      "id": "whisper-base",
+      "name": "Whisper base · 99 languages",
+      "task": "asr",
+      "mode": "batch",
+      "license": "MIT",
+      "langs": [
+        "*"
+      ],
+      "size_bytes": 160609290,
+      "description": "One step up from tiny: the same 99 languages, noticeably steadier on accents and on speech with music behind it. Runs after a recording rather than during one, so it is the model to choose when accuracy matters more than seeing words appear as they are said."
+    },
+    {
       "id": "whisper-tiny",
       "name": "Whisper tiny (99 languages)",
       "task": "asr",
@@ -233,6 +245,18 @@
       ],
       "size_bytes": 103609903,
       "description": "Smallest multilingual model. Good on English, weak on Vietnamese — see the measured numbers before choosing it for a language a specialised model covers."
+    },
+    {
+      "id": "zipformer-en",
+      "name": "Zipformer · English",
+      "task": "asr",
+      "mode": "live",
+      "license": "Apache-2.0",
+      "langs": [
+        "en"
+      ],
+      "size_bytes": 70350183,
+      "description": "English, and fast enough to put words on screen while somebody is still talking. A transducer rather than an encoder-decoder, which is what makes it usable live: it commits an utterance as soon as the speaker stops instead of re-reading the whole segment."
     }
   ]
 }
