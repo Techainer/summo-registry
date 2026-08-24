@@ -26,6 +26,18 @@
       "description": "The Vietnamese model Summo defaults to. A 65M-parameter Zipformer transducer exported to INT8, trained on Vietnamese telephony and meeting speech. 2.4% WER on Fleurs VI against Whisper tiny's 65.5%, in a fifth of the memory — which is the whole reason a specialised model is worth having over a multilingual one."
     },
     {
+      "id": "gtcrn-16k",
+      "name": "GTCRN · speech enhancement",
+      "task": "denoise",
+      "mode": "batch",
+      "langs": [
+        "*"
+      ],
+      "size_bytes": 535638,
+      "license": "Apache-2.0",
+      "description": "Takes the room off a recording before the decoder hears it: fans, air conditioning, keyboard, traffic through a window. Half a megabyte, and it runs over each finished sentence rather than the live audio. Worth having in a noisy room and worth leaving off in a quiet one — on clean speech from a good microphone it removes things that were not noise, and the transcript gets slightly worse rather than better."
+    },
+    {
       "id": "milmmt-46-1b",
       "name": "MiLMMT 46 · 1B · translation",
       "task": "translate",

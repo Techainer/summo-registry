@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "id": "gtcrn-16k",
+  "name": "GTCRN · speech enhancement",
+  "task": "denoise",
+  "mode": "batch",
+  "runtime": "sherpa-onnx/gtcrn",
+  "langs": [
+    "*"
+  ],
+  "license": "Apache-2.0",
+  "attribution": "Xiaobin-Rong/gtcrn, exported for sherpa-onnx by k2-fsa",
+  "redistributable": true,
+  "size_bytes": 535638,
+  "description": "Takes the room off a recording before the decoder hears it: fans, air conditioning, keyboard, traffic through a window. Half a megabyte, and it runs over each finished sentence rather than the live audio. Worth having in a noisy room and worth leaving off in a quiet one — on clean speech from a good microphone it removes things that were not noise, and the transcript gets slightly worse rather than better.",
+  "profile": {
+    "rss_mb": {
+      "idle": 30,
+      "peak": 90
+    },
+    "min_ram_mb": 256,
+    "rtf": {
+      "cpu_x86_avx2_1t": 0.102,
+      "cpu_x86_avx2_4t": 0.114
+    },
+    "latency_ms": {
+      "first_partial": 0,
+      "finalize_p50": 300,
+      "finalize_p95": 700
+    },
+    "quality": {},
+    "accel": [
+      "cpu"
+    ]
+  },
+  "files": [
+    {
+      "name": "gtcrn_simple.onnx",
+      "sha256": "e77603ac0c23dac3227dd2d7135b3a585cbee2679048aecfa886657d3ae1b534",
+      "size": 535638,
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx"
+    }
+  ],
+  "params": {
+    "model": "gtcrn_simple.onnx",
+    "num_threads": "1"
+  }
+}
