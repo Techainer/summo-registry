@@ -1,6 +1,6 @@
 # Silero VAD v5
 
-`summo pull silero-vad-v5`
+`silero-vad-v5`
 
 Default voice activity detector. Most accurate backend measured (F1 0.940) and permissively licensed. See docs/adr/0001-vad-backend-licensing.md.
 
@@ -28,6 +28,14 @@ Real-time factor, measured — below 1.0 keeps up with live audio:
 | Machine | RTF |
 |---|---|
 | `cpu_x86_avx512vnni_8t` | 0.006 |
+
+Accuracy, measured — word error rate, lower is better:
+
+| Benchmark | Score |
+|---|---|
+| `f1_ten_testset` | 94.0% |
+| `precision_ten_testset` | 92.5% |
+| `recall_ten_testset` | 95.6% |
 
 Accelerators: cpu, coreml, cuda.
 

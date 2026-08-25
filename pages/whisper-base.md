@@ -1,15 +1,15 @@
-# Whisper tiny (99 languages)
+# Whisper base · 99 languages
 
-`whisper-tiny`
+`whisper-base`
 
-Smallest multilingual model. Good on English, weak on Vietnamese — see the measured numbers before choosing it for a language a specialised model covers.
+One step up from tiny: the same 99 languages, noticeably steadier on accents and on speech with music behind it. Runs after a recording rather than during one, so it is the model to choose when accuracy matters more than seeing words appear as they are said.
 
 | | |
 |---|---|
 | Task | speech recognition |
 | Mode | batch |
 | Languages | any |
-| Size | 99 MB |
+| Size | 153 MB |
 | Licence | MIT |
 | Runtime | `sherpa-onnx/whisper` |
 
@@ -21,23 +21,9 @@ Redistributable under its licence, so Summo mirrors it. The checksums below are 
 
 ## What it costs
 
-Memory: about 200 MB resident, 600 MB at peak. Needs at least 1024 MB free.
+Memory: about 300 MB resident, 900 MB at peak. Needs at least 1536 MB free.
 
-Real-time factor, measured — below 1.0 keeps up with live audio:
-
-| Machine | RTF |
-|---|---|
-| `cpu_x86_avx2_4t` | 0.300 |
-| `cpu_x86_avx512vnni_4t` | 0.138 |
-| `cpu_x86_avx512vnni_8t` | 0.120 |
-
-Accuracy, measured — word error rate, lower is better:
-
-| Benchmark | Score |
-|---|---|
-| `cer_fleurs_vi` | 45.1% |
-| `wer_fleurs_vi` | 67.6% |
-| `wer_whisper_testset_en` | 4.5% |
+Nobody has measured how fast this runs yet, and the registry says so rather than guessing.
 
 Accelerators: cpu, coreml, cuda.
 
@@ -45,11 +31,9 @@ Accelerators: cpu, coreml, cuda.
 
 | Name | Size | sha256 |
 |---|---|---|
-| `tiny-encoder.int8.onnx` | 12 MB | `d24fb083ae3b1041fc24e97971d60e280c9342201fbb67b0ab428a8b4a51a434` |
-| `tiny-decoder.int8.onnx` | 86 MB | `d2fece8dd42771f1df975c6c0445770d0c292bf7547c2cae04a6c0cc57540925` |
-| `tiny-tokens.txt` | 798 KB | `b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126` |
-| `tiny-encoder.onnx` | 36 MB | `42c1d4cbf889632ba21ab6f0d4064c80209755f265ce5cd630db4a6793e7089c` |
-| `tiny-decoder.onnx` | 109 MB | `e144c07dc6b55cece24392811f2d934b97013811f5e677d1315d341a0a74a25d` |
+| `base-encoder.int8.onnx` | 28 MB | `0b8fb1304b6109976038efff5ace81720e00386f3ff6b54ee8c75291ca0a1e11` |
+| `base-decoder.int8.onnx` | 125 MB | `9759d217388a01b3a4c7c15533201067b48ae819c4daafc8624e64b9409dc02d` |
+| `base-tokens.txt` | 798 KB | `b34b360dbb493e781e479794586d661700670d65564001f23024971d1f2fa126` |
 
 ## From the publisher
 
@@ -168,7 +152,7 @@ widget:
 - example_title: Librispeech sample 2
   src: https://cdn-media.huggingface.co/speech_samples/sample2.flac
 model-index:
-- name: whisper-tiny
+- name: whisper-base
   results:
   - task:
       name: Automatic Speech Recognition
@@ -183,7 +167,7 @@ model-index:
     metrics:
     - name: Test WER
       type: wer
-      value: 7.54
+      value: 5.008769117619326
   - task:
       name: Automatic Speech Recognition
       type: automatic-speech-recognition
@@ -197,7 +181,7 @@ model-index:
     metrics:
     - name: Test WER
       type: wer
-      value:  17.15
+      value: 12.84936273212057
   - task:
       name: Automatic Speech Recognition
       type: automatic-speech-recognition
@@ -211,7 +195,7 @@ model-index:
     metrics:
     - name: Test WER
       type: wer
-      value: 141
+      value: 131
 pipeline_tag: automatic-speech-recognition
 license: apache-2.0
 ---
@@ -297,8 +281,8 @@ In this example, the context tokens are 'unforced', meaning the model automatica
 >>> from datasets import load_dataset
 
 >>> # load model and processor
->>> processor = WhisperProcessor.from_pretrained("openai/whisper-tiny")
->>> model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-tiny")
+>>> processor = WhisperProcessor.from_pretrained("openai/whisper-base")
+>>> model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-base")
 >>> model.config.forced_decoder_ids = None
 
 >>> # load dummy dataset and read audio files
@@ -325,8 +309,8 @@ The following example demonstrates French to French transcription by setting the
 >>> from datasets import Audio, load_dataset
 
 >>> # load model and processor
->>> processor = WhisperProcessor.from_pretrained("openai/whisper-tiny")
->>> model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-tiny")
+>>> processor = WhisperProcessor.from_pretrained("openai/whisper-base")
+>>> model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-base")
 >>> forced_decoder_ids = processor.get_decoder_prompt_ids(language="french", task="transcribe")
 
 >>> # load streaming dataset and read first audio sample
@@ -355,8 +339,8 @@ Setting the task to "translate" forces the Whisper model to perform speech trans
 >>> from datasets import Audio, load_dataset
 
 >>> # load model and processor
->>> processor = WhisperProcessor.from_pretrained("openai/whisper-tiny")
->>> model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-tiny")
+>>> processor = WhisperProcessor.from_pretrained("openai/whisper-base")
+>>> model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-base")
 >>> forced_decoder_ids = processor.get_decoder_prompt_ids(language="french", task="translate")
 
 >>> # load streaming dataset and read first audio sample
@@ -374,7 +358,7 @@ Setting the task to "translate" forces the Whisper model to perform speech trans
 
 ## Evaluation
 
-This code snippet shows how to evaluate Whisper Tiny on [LibriSpeech test-clean](https://huggingface.co/datasets/librispeech_asr):
+This code snippet shows how to evaluate Whisper Base on [LibriSpeech test-clean](https://huggingface.co/datasets/librispeech_asr):
  
 ```python
 >>> from datasets import load_dataset
@@ -384,8 +368,8 @@ This code snippet shows how to evaluate Whisper Tiny on [LibriSpeech test-clean]
 
 >>> librispeech_test_clean = load_dataset("librispeech_asr", "clean", split="test")
 
->>> processor = WhisperProcessor.from_pretrained("openai/whisper-tiny")
->>> model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-tiny").to("cuda")
+>>> processor = WhisperProcessor.from_pretrained("openai/whisper-base")
+>>> model = WhisperForConditionalGeneration.from_pretrained("openai/whisper-base").to("cuda")
 
 >>> def map_to_pred(batch):
 >>>     audio = batch["audio"]
@@ -402,7 +386,7 @@ This code snippet shows how to evaluate Whisper Tiny on [LibriSpeech test-clean]
 
 >>> wer = load("wer")
 >>> print(100 * wer.compute(references=result["reference"], predictions=result["prediction"]))
-7.547098647858638
+5.082316555716899
 ```
 
 ## Long-Form Transcription
@@ -422,7 +406,7 @@ can be run with batched inference. It can also be extended to predict sequence l
 
 >>> pipe = pipeline(
 >>>   "automatic-speech-recognition",
->>>   model="openai/whisper-tiny",
+>>>   model="openai/whisper-base",
 >>>   chunk_length_s=30,
 >>>   device=device,
 >>> )

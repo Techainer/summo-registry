@@ -1,6 +1,6 @@
 # MiLMMT 46 · 4B · translation
 
-`summo pull milmmt-46-4b`
+`milmmt-46-4b`
 
 The same translator, three times the size and measurably better at the sentences that matter. Against the 1B on Vietnamese meeting speech it fixed every error the smaller model made: “chiều nay” as this afternoon rather than this morning, “test tải” as load testing rather than download speed, and the line where the 1B answered a request for Japanese in Thai. It costs about 1.8× the time per line — 2.1 s against 1.2 s on eight CPU threads — and 2.5 GB of disk. Worth it on a machine with the memory to spare; the 1B remains the default because it is the one that fits everywhere. Summo does not redistribute it: the file comes from the publisher under the Gemma Terms of Use.
 
@@ -23,7 +23,7 @@ Published by Xiaomi Research (MiLMMT-46-4B-v1.0, built on Gemma 3 4B), GGUF conv
 
 Memory: about 2700 MB resident, 3200 MB at peak. Needs at least 6144 MB free.
 
-No real-time factor has been measured yet. Rather than guess, the registry says so — run `summo-bench` and send the numbers.
+Nobody has measured how fast this runs yet, and the registry says so rather than guessing.
 
 Accelerators: cpu, metal, cuda.
 

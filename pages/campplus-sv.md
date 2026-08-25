@@ -1,6 +1,6 @@
 # CAM++ speaker embedding
 
-`summo pull campplus-sv`
+`campplus-sv`
 
 Turns a finished utterance into a voice fingerprint, so the remote lane can be split by speaker. Runs after the text is already on screen and costs single-digit milliseconds per utterance.
 

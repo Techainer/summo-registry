@@ -1,6 +1,6 @@
 # SMALL100 · translation, 100 languages
 
-`summo pull small100`
+`small100`
 
 The default translator, and the small one: 330M parameters and 611 MB installed, against 806 MB for the 1B alternative — and 244 ms a line, which is the fastest of anything measured. It is the only translation model here not built on a 262 000-token embedding table, which is why it can be small at all: quantizing the 1B harder barely helps, because the table dominates the file. Exported as a separate encoder and decoder, so the twelve-layer encoder runs once per line instead of once per generated token — worth 2x on its own. MIT, so unlike the MiLMMT weights it may be redistributed freely. The trade is accuracy: on Vietnamese meeting speech it makes lexical errors the 1B does not, while still producing complete, on-topic sentences in the right language. Still far ahead of any general model of comparable size — Qwen3-0.6B repeated one phrase forty times on the same test and returned nothing at all for English into Vietnamese.
 
@@ -23,7 +23,7 @@ Redistributable under its licence, so Summo mirrors it. The checksums below are 
 
 Memory: about 700 MB resident, 1100 MB at peak. Needs at least 1536 MB free.
 
-No real-time factor has been measured yet. Rather than guess, the registry says so — run `summo-bench` and send the numbers.
+Nobody has measured how fast this runs yet, and the registry says so rather than guessing.
 
 Accelerators: cpu, cuda.
 
