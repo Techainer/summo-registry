@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "id": "vits-vi-vais1000",
+  "name": "VAIS 1000 · giọng tiếng Việt",
+  "task": "tts",
+  "mode": "batch",
+  "runtime": "sherpa-onnx/vits",
+  "langs": [
+    "vi"
+  ],
+  "license": "MIT",
+  "attribution": "piper by rhasspy, finetuned on the VAIS-1000 corpus (CC-BY-4.0); ONNX export published by k2-fsa for sherpa-onnx",
+  "redistributable": true,
+  "size_bytes": 67154040,
+  "description": "One Vietnamese voice, for reading a translated meeting back aloud — `summo dub` lays it over the original recording. Ships as a directory rather than a file: the weights are 63 MB and the rest is the phoneme data piper needs to pronounce anything at all.",
+  "profile": {
+    "rss_mb": {
+      "idle": 60,
+      "peak": 300
+    },
+    "min_ram_mb": 512,
+    "rtf": {},
+    "quality": {},
+    "accel": [
+      "cpu"
+    ]
+  },
+  "files": [
+    {
+      "name": "vits-piper-vi_VN-vais1000-medium.tar.bz2",
+      "sha256": "fa1367710767d36ed5cf13b4a449e20c35ffd12791c2e47c2e64142bfa55551a",
+      "size": 67154040,
+      "archive": "tar-bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-vi_VN-vais1000-medium.tar.bz2",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/vits-vi-vais1000-v1/vits-piper-vi_VN-vais1000-medium.tar.bz2",
+        "https://summo.techainer.com/models/vits-vi-vais1000-v1/vits-piper-vi_VN-vais1000-medium.tar.bz2"
+      ]
+    }
+  ],
+  "params": {
+    "dir": "vits-piper-vi_VN-vais1000-medium.tar.bz2/vits-piper-vi_VN-vais1000-medium"
+  }
+}
