@@ -17,7 +17,7 @@
   "redistributable": false,
   "gated": false,
   "size_bytes": 239549735,
-  "description": "Chinese, Cantonese, Japanese, Korean and English in one 234 MB model. Non-autoregressive — one encoder pass, no decoder loop — so it is fast enough to drive live text and, unlike Whisper, has no generative decoder to invent an ending for a half-spoken sentence. Measured at RTF 0.044 on eight threads of a Xeon 6226R and 0.062 on four, which is about 2.5× the cost of the Vietnamese transducer per decode; Vietnamese is not one of its languages and gipformer-65m remains the right choice there. Accuracy has not yet been measured by summo-bench: the upstream claim is that it beats Whisper-small while running roughly five times faster, and that claim is theirs, not ours. Summo does not redistribute this model — the files come straight from the publisher under their own licence, which permits commercial use and requires attribution.",
+  "description": "Chinese, Cantonese, Japanese, Korean and English in one model, and the fastest of them here. Ships as an int8 export and a full-precision one; the app fetches whichever fits this machine, which is why the size on the card is not a single fixed number. No Vietnamese — for a Vietnamese meeting this is the wrong model, however good it is at the five it does cover.",
   "profile": {
     "rss_mb": {
       "idle": 300,
@@ -46,20 +46,29 @@
       "sha256": "c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51",
       "size": 239233841,
       "url": "https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/main/model.int8.onnx",
-      "variant": "int8"
+      "variant": "int8",
+      "mirror": [
+        "https://hf-mirror.com/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/main/model.int8.onnx"
+      ]
     },
     {
       "name": "tokens.txt",
       "sha256": "f449eb28dc567533d7fa59be34e2abca8784f771850c78a47fb731a31429a1dc",
       "size": 315894,
-      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/main/tokens.txt"
+      "url": "https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/main/tokens.txt",
+      "mirror": [
+        "https://hf-mirror.com/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/main/tokens.txt"
+      ]
     },
     {
       "name": "model.onnx",
       "sha256": "977016bd9c79f9eb343430b5cc305e07ab64d5212dff41b0dcfa1694bee9a8cb",
       "size": 937617178,
       "url": "https://huggingface.co/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/main/model.onnx",
-      "variant": "fp32"
+      "variant": "fp32",
+      "mirror": [
+        "https://hf-mirror.com/csukuangfj/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/resolve/main/model.onnx"
+      ]
     }
   ],
   "params": {

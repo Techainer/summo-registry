@@ -38,7 +38,11 @@
       "name": "gtcrn_simple.onnx",
       "sha256": "e77603ac0c23dac3227dd2d7135b3a585cbee2679048aecfa886657d3ae1b534",
       "size": 535638,
-      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx"
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/speech-enhancement-models/gtcrn_simple.onnx",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/gtcrn-16k-v1/gtcrn_simple.onnx",
+        "https://summo.techainer.com/models/gtcrn-16k-v1/gtcrn_simple.onnx"
+      ]
     }
   ],
   "params": {
