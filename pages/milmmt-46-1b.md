@@ -1,6 +1,6 @@
 # MiLMMT 46 · 1B · translation
 
-`summo pull milmmt-46-1b`
+`milmmt-46-1b`
 
 Translation between 46 languages, running inside Summo — no Ollama, no second process. 806 MB on disk, about 700 ms a line on eight CPU threads, and nothing per line ever. This is what makes translation the one text feature that costs nothing: a 1B model trained for translation beats a general 8B model at it, so the expensive model stays optional and a user with no API key can still translate every meeting they record. Measured against SMALL100, the obvious smaller alternative: better on every sentence tried, at less than half the disk. Vietnamese, Japanese, Chinese, Korean and English are all in its set. Summo does not redistribute it — the file comes from the publisher under the Gemma Terms of Use, which permit commercial use and impose conditions on passing the weights on.
 
@@ -23,7 +23,7 @@ Published by Xiaomi Research (MiLMMT-46-1B-v1.0, built on Gemma 3 1B), GGUF conv
 
 Memory: about 900 MB resident, 1200 MB at peak. Needs at least 2048 MB free.
 
-No real-time factor has been measured yet. Rather than guess, the registry says so — run `summo-bench` and send the numbers.
+Nobody has measured how fast this runs yet, and the registry says so rather than guessing.
 
 Accelerators: cpu, metal, cuda.
 

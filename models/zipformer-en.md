@@ -1,0 +1,10 @@
+---
+license: apache-2.0
+---
+
+The torchscript model is from
+https://huggingface.co/Zengwei/icefall-asr-librispeech-zipformer-2023-05-15
+
+The training code is from
+https://github.com/k2-fsa/icefall/pull/1058
+See https://github.com/k2-fsa/icefall/pull/1058
