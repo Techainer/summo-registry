@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "id": "parakeet-tdt-110m-en",
+  "name": "Parakeet TDT 110M · English",
+  "task": "asr",
+  "mode": "live",
+  "runtime": "sherpa-onnx/transducer-offline",
+  "langs": [
+    "en"
+  ],
+  "license": "CC-BY-4.0",
+  "attribution": "NVIDIA NeMo (parakeet-tdt_ctc-110m), ONNX export by k2-fsa/sherpa-onnx",
+  "redistributable": true,
+  "size_bytes": 108035095,
+  "description": "English, to sit beside a Vietnamese specialist in a bilingual meeting. A 110M-parameter transducer at 108 MB — the light end of NVIDIA Parakeet, whose 600M sibling is four times the size. A transducer rather than an encoder-decoder, so it commits an utterance when the speaker stops instead of re-reading the segment, and it does not invent an ending for a half-spoken sentence the way Whisper does. NVIDIA publishes no WER for this export, so none is claimed here.",
+  "profile": {
+    "rss_mb": {
+      "idle": 200,
+      "peak": 900
+    },
+    "min_ram_mb": 1024,
+    "rtf": {},
+    "latency_ms": {
+      "first_partial": 200,
+      "finalize_p50": 300,
+      "finalize_p95": 700
+    },
+    "quality": {},
+    "accel": [
+      "cpu",
+      "coreml"
+    ]
+  },
+  "files": [
+    {
+      "name": "parakeet-tdt-110m-en-int8.tar.bz2",
+      "sha256": "f628312e9fdf8686374cb01a69425c41732529d540860311f16f37cbc32cfe9b",
+      "archive": "tar-bz2",
+      "url": "https://github.com/Techainer/summo-models/releases/download/parakeet-tdt-110m-en-v1/parakeet-tdt-110m-en-int8.tar.bz2",
+      "mirror": [
+        "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-parakeet_tdt_transducer_110m-en-36000-int8.tar.bz2"
+      ],
+      "size": 108035095
+    }
+  ],
+  "params": {
+    "encoder": "parakeet-tdt-110m-en-int8.tar.bz2/sherpa-onnx-nemo-parakeet_tdt_transducer_110m-en-36000-int8/encoder.int8.onnx",
+    "decoder": "parakeet-tdt-110m-en-int8.tar.bz2/sherpa-onnx-nemo-parakeet_tdt_transducer_110m-en-36000-int8/decoder.int8.onnx",
+    "joiner": "parakeet-tdt-110m-en-int8.tar.bz2/sherpa-onnx-nemo-parakeet_tdt_transducer_110m-en-36000-int8/joiner.int8.onnx",
+    "tokens": "parakeet-tdt-110m-en-int8.tar.bz2/sherpa-onnx-nemo-parakeet_tdt_transducer_110m-en-36000-int8/tokens.txt",
+    "num_threads": "auto",
+    "model_type": "nemo_transducer"
+  },
+  "variants": []
+}

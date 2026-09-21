@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "id": "gipformer-1.5-68m",
+  "name": "Gipformer 1.5 · Vietnamese",
+  "task": "asr",
+  "mode": "live",
+  "runtime": "sherpa-onnx/transducer-offline",
+  "langs": [
+    "vi"
+  ],
+  "license": "MIT",
+  "attribution": "g-group-ai-lab, ONNX export by the publisher",
+  "redistributable": true,
+  "size_bytes": 73244313,
+  "description": "The newest Gipformer, and what Summo recommends for Vietnamese. A 68M-parameter Zipformer transducer exported to INT8. The publisher reports 15.44% WER on their tele-medium set against 15.53% for the previous 68M model; they measure sixteen test sets spanning call centre, technology, education, finance and medical speech, and publish no FLEURS figure, so none is claimed here. Shares its vocabulary with the model it replaces, byte for byte, so it is a drop-in.",
+  "profile": {
+    "rss_mb": {
+      "idle": 150,
+      "peak": 800
+    },
+    "min_ram_mb": 1024,
+    "rtf": {},
+    "latency_ms": {
+      "first_partial": 200,
+      "finalize_p50": 300,
+      "finalize_p95": 700
+    },
+    "quality": {},
+    "accel": [
+      "cpu",
+      "coreml"
+    ]
+  },
+  "files": [
+    {
+      "name": "encoder.int8.onnx",
+      "sha256": "b528768939c7711a889be81a718ea7f2ee50d0d2d384d53f399e15b44bd9408c",
+      "url": "https://github.com/Techainer/summo-models/releases/download/gipformer-1.5-68m-v1/encoder.int8.onnx",
+      "mirror": [
+        "https://huggingface.co/g-group-ai-lab/gipformer1.5-68M-rnnt/resolve/main/encoder.int8.onnx"
+      ],
+      "size": 70876359
+    },
+    {
+      "name": "decoder.int8.onnx",
+      "sha256": "e0a156b5454722a524230f9e35d5d928cfcdd3723437b418e5bd5e04f1c3a101",
+      "url": "https://github.com/Techainer/summo-models/releases/download/gipformer-1.5-68m-v1/decoder.int8.onnx",
+      "mirror": [
+        "https://huggingface.co/g-group-ai-lab/gipformer1.5-68M-rnnt/resolve/main/decoder.int8.onnx"
+      ],
+      "size": 1308690
+    },
+    {
+      "name": "joiner.int8.onnx",
+      "sha256": "12636559d135315f002a1e1b477077d415e888477378db0fd450aee5b21ac551",
+      "url": "https://github.com/Techainer/summo-models/releases/download/gipformer-1.5-68m-v1/joiner.int8.onnx",
+      "mirror": [
+        "https://huggingface.co/g-group-ai-lab/gipformer1.5-68M-rnnt/resolve/main/joiner.int8.onnx"
+      ],
+      "size": 1033417
+    },
+    {
+      "name": "tokens.txt",
+      "sha256": "f536d03c2e95ebd2930cf0abec88e823bd17d3c1933da7ae6a82db3b80605e15",
+      "url": "https://github.com/Techainer/summo-models/releases/download/gipformer-1.5-68m-v1/tokens.txt",
+      "mirror": [
+        "https://huggingface.co/g-group-ai-lab/gipformer1.5-68M-rnnt/resolve/main/tokens.txt"
+      ],
+      "size": 25847
+    }
+  ],
+  "params": {
+    "encoder": "encoder.int8.onnx",
+    "decoder": "decoder.int8.onnx",
+    "joiner": "joiner.int8.onnx",
+    "tokens": "tokens.txt",
+    "num_threads": "auto"
+  },
+  "variants": []
+}
