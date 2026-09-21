@@ -14,6 +14,18 @@
       "description": "Turns a finished utterance into a voice fingerprint, so the remote lane can be split by speaker. Runs after the text is already on screen and costs single-digit milliseconds per utterance."
     },
     {
+      "id": "gipformer-1.5-68m",
+      "name": "Gipformer 1.5 · Vietnamese",
+      "task": "asr",
+      "mode": "live",
+      "license": "MIT",
+      "langs": [
+        "vi"
+      ],
+      "size_bytes": 73244313,
+      "description": "The newest Gipformer, and what Summo recommends for Vietnamese. A 68M-parameter Zipformer transducer exported to INT8. The publisher reports 15.44% WER on their tele-medium set against 15.53% for the previous 68M model; they measure sixteen test sets spanning call centre, technology, education, finance and medical speech, and publish no FLEURS figure, so none is claimed here. Shares its vocabulary with the model it replaces, byte for byte, so it is a drop-in."
+    },
+    {
       "id": "gipformer-65m",
       "name": "Gipformer 65M · Vietnamese",
       "task": "asr",
@@ -150,6 +162,18 @@
       ],
       "size_bytes": 2489893152,
       "description": "The same translator, three times the size and measurably better at the sentences that matter. Against the 1B on Vietnamese meeting speech it fixed every error the smaller model made: “chiều nay” as this afternoon rather than this morning, “test tải” as load testing rather than download speed, and the line where the 1B answered a request for Japanese in Thai. It costs about 1.8× the time per line — 2.1 s against 1.2 s on eight CPU threads — and 2.5 GB of disk. Worth it on a machine with the memory to spare; the 1B remains the default because it is the one that fits everywhere. Summo does not redistribute it: the file comes from the publisher under the Gemma Terms of Use."
+    },
+    {
+      "id": "parakeet-tdt-110m-en",
+      "name": "Parakeet TDT 110M · English",
+      "task": "asr",
+      "mode": "live",
+      "license": "CC-BY-4.0",
+      "langs": [
+        "en"
+      ],
+      "size_bytes": 108035095,
+      "description": "English, to sit beside a Vietnamese specialist in a bilingual meeting. A 110M-parameter transducer at 108 MB — the light end of NVIDIA Parakeet, whose 600M sibling is four times the size. A transducer rather than an encoder-decoder, so it commits an utterance when the speaker stops instead of re-reading the segment, and it does not invent an ending for a half-spoken sentence the way Whisper does. NVIDIA publishes no WER for this export, so none is claimed here."
     },
     {
       "id": "sense-voice-small",
