@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "id": "gipformer-65m",
-  "name": "Gipformer 65M · Vietnamese",
+  "name": "Gipformer 65M · Vietnamese (thay bằng 1.5)",
   "task": "asr",
   "mode": "live",
   "runtime": "sherpa-onnx/transducer-offline",
@@ -12,7 +12,7 @@
   "attribution": "g-group-ai-lab, Zipformer transducer trained with k2-fsa/icefall",
   "redistributable": true,
   "size_bytes": 73218466,
-  "description": "The Vietnamese model Summo defaults to. A 65M-parameter Zipformer transducer exported to INT8, trained on Vietnamese telephony and meeting speech. 2.4% WER on Fleurs VI against Whisper tiny's 65.5%, in a fifth of the memory — which is the whole reason a specialised model is worth having over a multilingual one.",
+  "description": "Superseded by gipformer-1.5-68m, which measures better on every axis on the same hundred FLEURS vi clips — 8.3% WER and 6.2% CER against 8.6% and 6.8%, at a slightly lower real-time factor. Kept listed because it is what earlier releases installed and removing it would strand them. Its own description used to say it was the model Summo defaults to, which stopped being true the day the newer one was measured.",
   "profile": {
     "rss_mb": {
       "idle": 150,
@@ -20,9 +20,8 @@
     },
     "min_ram_mb": 1024,
     "rtf": {
-      "cpu_x86_avx2_4t": 0.06,
-      "cpu_x86_avx512vnni_4t": 0.023,
-      "cpu_x86_avx512vnni_8t": 0.019
+      "cpu_x86_avx512vnni_4t": 0.0234,
+      "cpu_x86_avx512vnni_8t": 0.0177
     },
     "latency_ms": {
       "first_partial": 200,
@@ -30,8 +29,8 @@
       "finalize_p95": 700
     },
     "quality": {
-      "wer_fleurs_vi": 0.085,
-      "cer_fleurs_vi": 0.067
+      "wer_fleurs_vi": 0.086,
+      "cer_fleurs_vi": 0.068
     },
     "accel": [
       "cpu",
