@@ -19,13 +19,19 @@
       "peak": 900
     },
     "min_ram_mb": 1536,
-    "rtf": {},
+    "rtf": {
+      "cpu_x86_avx512vnni_4t": 0.1485,
+      "cpu_x86_avx512vnni_8t": 0.1337
+    },
     "latency_ms": {
       "first_partial": 0,
       "finalize_p50": 1200,
       "finalize_p95": 2600
     },
-    "quality": {},
+    "quality": {
+      "wer_fleurs_en": 0.102,
+      "cer_fleurs_en": 0.05
+    },
     "accel": [
       "cpu",
       "coreml",

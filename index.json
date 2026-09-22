@@ -304,7 +304,7 @@
         "en"
       ],
       "size_bytes": 70350183,
-      "description": "English, and fast enough to put words on screen while somebody is still talking. A transducer rather than an encoder-decoder, which is what makes it usable live: it commits an utterance as soon as the speaker stops instead of re-reading the whole segment."
+      "description": "English, and measured here at 59.7% WER on FLEURS en — which is not a usable transcript. It produced nothing at all for 22 of the hundred clips and mangled most of the rest; on one it answered a whole sentence with the single word VERY. Whisper base is at 10.2% on the same clips and the same harness. Kept listed rather than removed so the number is visible, because it was published here with no measurement and looked like a reasonable choice. See docs/benchmarks.md."
     }
   ]
 }

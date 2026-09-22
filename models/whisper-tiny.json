@@ -21,8 +21,8 @@
     "min_ram_mb": 1024,
     "rtf": {
       "cpu_x86_avx2_4t": 0.3,
-      "cpu_x86_avx512vnni_4t": 0.138,
-      "cpu_x86_avx512vnni_8t": 0.12
+      "cpu_x86_avx512vnni_4t": 0.0808,
+      "cpu_x86_avx512vnni_8t": 0.0739
     },
     "latency_ms": {
       "first_partial": 0,
@@ -30,9 +30,10 @@
       "finalize_p95": 1500
     },
     "quality": {
-      "wer_whisper_testset_en": 0.045,
       "wer_fleurs_vi": 0.676,
-      "cer_fleurs_vi": 0.451
+      "cer_fleurs_vi": 0.451,
+      "wer_fleurs_en": 0.138,
+      "cer_fleurs_en": 0.064
     },
     "accel": [
       "cpu",

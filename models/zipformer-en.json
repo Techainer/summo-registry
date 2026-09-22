@@ -12,20 +12,26 @@
   "attribution": "k2-fsa/icefall, trained on LibriSpeech and GigaSpeech, ONNX export by csukuangfj",
   "redistributable": true,
   "size_bytes": 70350183,
-  "description": "English, and fast enough to put words on screen while somebody is still talking. A transducer rather than an encoder-decoder, which is what makes it usable live: it commits an utterance as soon as the speaker stops instead of re-reading the whole segment.",
+  "description": "English, and measured here at 59.7% WER on FLEURS en — which is not a usable transcript. It produced nothing at all for 22 of the hundred clips and mangled most of the rest; on one it answered a whole sentence with the single word VERY. Whisper base is at 10.2% on the same clips and the same harness. Kept listed rather than removed so the number is visible, because it was published here with no measurement and looked like a reasonable choice. See docs/benchmarks.md.",
   "profile": {
     "rss_mb": {
       "idle": 200,
       "peak": 900
     },
     "min_ram_mb": 1024,
-    "rtf": {},
+    "rtf": {
+      "cpu_x86_avx512vnni_4t": 0.02,
+      "cpu_x86_avx512vnni_8t": 0.0204
+    },
     "latency_ms": {
       "first_partial": 250,
       "finalize_p50": 350,
       "finalize_p95": 800
     },
-    "quality": {},
+    "quality": {
+      "wer_fleurs_en": 0.597,
+      "cer_fleurs_en": 0.535
+    },
     "accel": [
       "cpu",
       "coreml"
