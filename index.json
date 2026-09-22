@@ -305,6 +305,18 @@
       ],
       "size_bytes": 70350183,
       "description": "English, and measured here at 59.7% WER on FLEURS en — which is not a usable transcript. It produced nothing at all for 22 of the hundred clips and mangled most of the rest; on one it answered a whole sentence with the single word VERY. Whisper base is at 10.2% on the same clips and the same harness. Kept listed rather than removed so the number is visible, because it was published here with no measurement and looked like a reasonable choice. See docs/benchmarks.md."
+    },
+    {
+      "id": "zipformer-gigaspeech-en",
+      "name": "Zipformer GigaSpeech · English",
+      "task": "asr",
+      "mode": "live",
+      "license": "Apache-2.0",
+      "langs": [
+        "en"
+      ],
+      "size_bytes": 73655806,
+      "description": "English, measured here at 10.1% WER on the same hundred FLEURS en clips and the same harness as everything else — level with Whisper base at 10.2%, and six times faster. It is a transducer, so it produces text while you are still speaking rather than only when you stop; Whisper declines to decode a half-spoken sentence because it invents an ending for one. Trained on GigaSpeech, which is ten thousand hours of podcasts, videos and audiobooks, and that breadth is the difference from the other English transducer here: zipformer-en is a LibriSpeech model and scores 59.7% on the same clips. Slightly behind Whisper per character (6.5% against 5.0%) and level per word. See docs/benchmarks.md."
     }
   ]
 }
