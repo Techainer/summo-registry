@@ -94,5 +94,6 @@
       "name": "int8",
       "precision": "int8"
     }
-  ]
+  ],
+  "superseded_by": "gipformer-1.5-68m"
 }
