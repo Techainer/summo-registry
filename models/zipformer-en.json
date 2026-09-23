@@ -12,7 +12,7 @@
   "attribution": "k2-fsa/icefall, trained on LibriSpeech and GigaSpeech, ONNX export by csukuangfj",
   "redistributable": true,
   "size_bytes": 70350183,
-  "description": "English, and measured here at 59.7% WER on FLEURS en — which is not a usable transcript. It produced nothing at all for 22 of the hundred clips and mangled most of the rest; on one it answered a whole sentence with the single word VERY. Whisper base is at 10.2% on the same clips and the same harness. Kept listed rather than removed so the number is visible, because it was published here with no measurement and looked like a reasonable choice. See docs/benchmarks.md.",
+  "description": "English, 15.9% WER on a hundred FLEURS en clips — usable, and behind the two models above it at a similar size. It was published here at 59.7% with a description calling it unusable; that measurement was taken while Summo handed models audio at whatever level it was recorded at, and this model is one of the ones that could not read quiet speech. The recorder levels every utterance now. Trained on LibriSpeech, which is read audiobooks, and the remaining gap to the GigaSpeech model is that. See docs/benchmarks.md.",
   "profile": {
     "rss_mb": {
       "idle": 200,
@@ -29,8 +29,8 @@
       "finalize_p95": 800
     },
     "quality": {
-      "wer_fleurs_en": 0.597,
-      "cer_fleurs_en": 0.535
+      "wer_fleurs_en": 0.159,
+      "cer_fleurs_en": 0.085
     },
     "accel": [
       "cpu",

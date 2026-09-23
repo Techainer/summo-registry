@@ -29,8 +29,8 @@
       "finalize_p95": 2600
     },
     "quality": {
-      "wer_fleurs_en": 0.102,
-      "cer_fleurs_en": 0.05
+      "wer_fleurs_en": 0.107,
+      "cer_fleurs_en": 0.049
     },
     "accel": [
       "cpu",

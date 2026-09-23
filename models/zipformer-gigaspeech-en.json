@@ -12,7 +12,7 @@
   "attribution": "k2-fsa/icefall, trained on GigaSpeech, ONNX export by csukuangfj",
   "redistributable": true,
   "size_bytes": 73655806,
-  "description": "English, measured here at 10.1% WER on the same hundred FLEURS en clips and the same harness as everything else — level with Whisper base at 10.2%, and six times faster. It is a transducer, so it produces text while you are still speaking rather than only when you stop; Whisper declines to decode a half-spoken sentence because it invents an ending for one. Trained on GigaSpeech, which is ten thousand hours of podcasts, videos and audiobooks, and that breadth is the difference from the other English transducer here: zipformer-en is a LibriSpeech model and scores 59.7% on the same clips. Slightly behind Whisper per character (6.5% against 5.0%) and level per word. See docs/benchmarks.md.",
+  "description": "English at 8.9% WER and 5.7% CER on a hundred FLEURS en clips, in 73 MB — the best accuracy per megabyte here, and seven times faster than Whisper base. A transducer, so it produces text while you are still speaking; Whisper declines to decode a half-spoken sentence because it invents an ending for one. Trained on GigaSpeech: ten thousand hours of podcasts, videos and audiobooks. See docs/benchmarks.md.",
   "profile": {
     "rss_mb": {
       "idle": 210,
@@ -21,7 +21,7 @@
     "min_ram_mb": 1024,
     "rtf": {
       "cpu_x86_avx512vnni_4t": 0.0211,
-      "cpu_x86_avx512vnni_8t": 0.018
+      "cpu_x86_avx512vnni_8t": 0.0197
     },
     "latency_ms": {
       "first_partial": 250,
@@ -29,8 +29,8 @@
       "finalize_p95": 800
     },
     "quality": {
-      "wer_fleurs_en": 0.101,
-      "cer_fleurs_en": 0.065
+      "wer_fleurs_en": 0.089,
+      "cer_fleurs_en": 0.057
     },
     "accel": [
       "cpu",

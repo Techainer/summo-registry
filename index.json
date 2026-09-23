@@ -173,7 +173,7 @@
         "en"
       ],
       "size_bytes": 108035095,
-      "description": "English, to sit beside a Vietnamese specialist in a bilingual meeting. A 110M-parameter transducer at 108 MB — the light end of NVIDIA Parakeet, whose 600M sibling is four times the size. A transducer rather than an encoder-decoder, so it commits an utterance when the speaker stops instead of re-reading the segment, and it does not invent an ending for a half-spoken sentence the way Whisper does. NVIDIA publishes no WER for this export, so none is claimed here."
+      "description": "The most accurate English model measured here: 8.4% WER and 5.7% CER on a hundred FLEURS en clips, at 108 MB. A transducer, so text appears while you are still speaking rather than when you stop. Its accuracy was left blank in this registry for a while, with a note that it produced nothing at all for 44 of those clips — that was not the model. Summo was feeding it audio at whatever level it was recorded at, and a NeMo model near the log-mel floor is mostly floor. The recorder levels every utterance now and the same files score 8.4%. See docs/benchmarks.md."
     },
     {
       "id": "sense-voice-small",
@@ -304,7 +304,7 @@
         "en"
       ],
       "size_bytes": 70350183,
-      "description": "English, and measured here at 59.7% WER on FLEURS en — which is not a usable transcript. It produced nothing at all for 22 of the hundred clips and mangled most of the rest; on one it answered a whole sentence with the single word VERY. Whisper base is at 10.2% on the same clips and the same harness. Kept listed rather than removed so the number is visible, because it was published here with no measurement and looked like a reasonable choice. See docs/benchmarks.md."
+      "description": "English, 15.9% WER on a hundred FLEURS en clips — usable, and behind the two models above it at a similar size. It was published here at 59.7% with a description calling it unusable; that measurement was taken while Summo handed models audio at whatever level it was recorded at, and this model is one of the ones that could not read quiet speech. The recorder levels every utterance now. Trained on LibriSpeech, which is read audiobooks, and the remaining gap to the GigaSpeech model is that. See docs/benchmarks.md."
     },
     {
       "id": "zipformer-gigaspeech-en",
@@ -316,7 +316,7 @@
         "en"
       ],
       "size_bytes": 73655806,
-      "description": "English, measured here at 10.1% WER on the same hundred FLEURS en clips and the same harness as everything else — level with Whisper base at 10.2%, and six times faster. It is a transducer, so it produces text while you are still speaking rather than only when you stop; Whisper declines to decode a half-spoken sentence because it invents an ending for one. Trained on GigaSpeech, which is ten thousand hours of podcasts, videos and audiobooks, and that breadth is the difference from the other English transducer here: zipformer-en is a LibriSpeech model and scores 59.7% on the same clips. Slightly behind Whisper per character (6.5% against 5.0%) and level per word. See docs/benchmarks.md."
+      "description": "English at 8.9% WER and 5.7% CER on a hundred FLEURS en clips, in 73 MB — the best accuracy per megabyte here, and seven times faster than Whisper base. A transducer, so it produces text while you are still speaking; Whisper declines to decode a half-spoken sentence because it invents an ending for one. Trained on GigaSpeech: ten thousand hours of podcasts, videos and audiobooks. See docs/benchmarks.md."
     }
   ]
 }
