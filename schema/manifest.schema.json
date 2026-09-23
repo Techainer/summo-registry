@@ -208,6 +208,10 @@
     "params": {
       "type": "object",
       "description": "Runtime knobs. Values naming a file map that file to what the runtime expects — the only way to find anything in a content-addressed store."
+    },
+    "superseded_by": {
+      "type": "string",
+      "description": "The id of the model that replaces this one. A catalogue may hide a superseded model that is not installed, and must keep showing one that is: it is what earlier releases put on people's disks."
     }
   }
 }
