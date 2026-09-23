@@ -12,20 +12,25 @@
   "attribution": "NVIDIA NeMo (parakeet-tdt_ctc-110m), ONNX export by k2-fsa/sherpa-onnx",
   "redistributable": true,
   "size_bytes": 108035095,
-  "description": "English, to sit beside a Vietnamese specialist in a bilingual meeting. A 110M-parameter transducer at 108 MB — the light end of NVIDIA Parakeet, whose 600M sibling is four times the size. A transducer rather than an encoder-decoder, so it commits an utterance when the speaker stops instead of re-reading the segment, and it does not invent an ending for a half-spoken sentence the way Whisper does. NVIDIA publishes no WER for this export, so none is claimed here.",
+  "description": "The most accurate English model measured here: 8.4% WER and 5.7% CER on a hundred FLEURS en clips, at 108 MB. A transducer, so text appears while you are still speaking rather than when you stop. Its accuracy was left blank in this registry for a while, with a note that it produced nothing at all for 44 of those clips — that was not the model. Summo was feeding it audio at whatever level it was recorded at, and a NeMo model near the log-mel floor is mostly floor. The recorder levels every utterance now and the same files score 8.4%. See docs/benchmarks.md.",
   "profile": {
     "rss_mb": {
       "idle": 200,
       "peak": 900
     },
     "min_ram_mb": 1024,
-    "rtf": {},
+    "rtf": {
+      "cpu_x86_avx512vnni_8t": 0.0245
+    },
     "latency_ms": {
       "first_partial": 200,
       "finalize_p50": 300,
       "finalize_p95": 700
     },
-    "quality": {},
+    "quality": {
+      "wer_fleurs_en": 0.084,
+      "cer_fleurs_en": 0.057
+    },
     "accel": [
       "cpu",
       "coreml"

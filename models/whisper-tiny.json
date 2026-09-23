@@ -32,8 +32,8 @@
     "quality": {
       "wer_fleurs_vi": 0.676,
       "cer_fleurs_vi": 0.451,
-      "wer_fleurs_en": 0.138,
-      "cer_fleurs_en": 0.064
+      "wer_fleurs_en": 0.132,
+      "cer_fleurs_en": 0.06
     },
     "accel": [
       "cpu",
