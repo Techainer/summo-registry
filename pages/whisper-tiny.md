@@ -2,7 +2,7 @@
 
 `whisper-tiny`
 
-Smallest multilingual model. Good on English, weak on Vietnamese — see the measured numbers before choosing it for a language a specialised model covers.
+Smallest multilingual model. Good on English, weak on Vietnamese — see the measured numbers before choosing it for a language a specialised model covers. Ships full precision and int8, and takes full precision: measured on the same hundred FLEURS en clips, quantising this one costs seven and a half points of word error rate — 20.6% against 13.2% — and is not even faster. The int8 build is there for a machine without the memory for the other, which is the only reason to take it.
 
 | | |
 |---|---|

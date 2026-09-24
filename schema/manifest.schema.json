@@ -36,7 +36,8 @@
         "diarize-seg",
         "speaker-embed",
         "embed",
-        "tts"
+        "tts",
+        "translate"
       ]
     },
     "mode": {
@@ -201,6 +202,10 @@
               "tar-gz"
             ],
             "description": "Unpack this entry rather than using it as a file. The digest is still the digest of the archive's own bytes. For a model that is a directory — a piper voice is an .onnx plus several hundred phoneme tables the runtime opens by directory path."
+          },
+          "variant": {
+            "type": "string",
+            "description": "The `variants[].name` this file belongs to. Absent means every variant, which is how a tokeniser shared by an int8 and an fp32 build is declared once."
           }
         }
       }
@@ -212,6 +217,50 @@
     "superseded_by": {
       "type": "string",
       "description": "The id of the model that replaces this one. A catalogue may hide a superseded model that is not installed, and must keep showing one that is: it is what earlier releases put on people's disks."
+    },
+    "gated": {
+      "type": "boolean",
+      "default": false,
+      "description": "true when the upstream host requires a credential before it will serve these files. Summo asks for one rather than reporting a download failure it cannot explain."
+    },
+    "variants": {
+      "type": "array",
+      "description": "The builds this model ships, when it ships more than one. A file with no `variant` tag belongs to every variant, so a tokeniser is declared once. Summo picks by platform, then by the accelerator this machine has, then by what the publisher measured, then by precision against free memory.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Referenced by the `variant` on each file, e.g. `int8` or `coreml`."
+          },
+          "accel": {
+            "type": "string",
+            "enum": [
+              "cpu",
+              "cuda",
+              "coreml",
+              "directml",
+              "rocm"
+            ],
+            "description": "Absent means this build runs anywhere the platform does."
+          },
+          "precision": {
+            "type": "string",
+            "enum": [
+              "int4",
+              "int8",
+              "fp16",
+              "fp32"
+            ]
+          },
+          "preferred": {
+            "type": "boolean",
+            "default": false,
+            "description": "Set when the publisher has measured the builds against one another and this one won. It overrules the precision rule, which is only a guess: quantising SenseVoice costs a tenth of a point of word error rate and saves 700 MB, while quantising Whisper tiny costs seven and a half points and is slower. Neither is derivable from a manifest, so the manifest states it."
+          }
+        }
+      }
     }
   }
 }

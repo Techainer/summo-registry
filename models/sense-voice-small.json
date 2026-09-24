@@ -82,7 +82,8 @@
   "variants": [
     {
       "name": "int8",
-      "precision": "int8"
+      "precision": "int8",
+      "preferred": true
     },
     {
       "name": "fp32",

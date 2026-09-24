@@ -26,6 +26,33 @@ jobs:
         working-directory: summo
         run: cargo run --quiet -p summo-cli -- registry check ${{ github.workspace }}
 
+      # Against `schema/manifest.schema.json`, which this job is named after and did not read.
+      #
+      # `registry check` validates by deserialising into the app's own types, which is the right
+      # check for the app and says nothing about the published schema. Nothing read that file, so
+      # it had drifted until nine of fifteen manifests in this repository failed it: it had never
+      # heard of `variants`, of `gated`, of a `variant` tag on a file, or of `translate` as a task
+      # — every one of them shipped and in use. Somebody writing their first manifest against the
+      # schema would have been told their valid model was invalid.
+      - name: Every manifest matches the published schema
+        run: |
+          pip install --quiet jsonschema
+          python3 - <<'PY'
+          import glob, json, sys
+          import jsonschema
+
+          schema = json.load(open("schema/manifest.schema.json"))
+          validator = jsonschema.Draft202012Validator(schema)
+          failures = 0
+          for path in sorted(glob.glob("models/*.json")):
+              manifest = json.load(open(path))
+              for error in validator.iter_errors(manifest):
+                  where = "/".join(map(str, error.path)) or "(root)"
+                  print(f"FAIL {path}: {where}: {error.message}")
+                  failures += 1
+          sys.exit(1 if failures else 0)
+          PY
+
   reachable:
     name: files exist and match their digests
     runs-on: ubuntu-latest
