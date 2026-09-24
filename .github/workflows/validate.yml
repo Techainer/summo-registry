@@ -60,38 +60,90 @@ jobs:
       - uses: actions/checkout@v4
       # A manifest whose files 404 is worse than no manifest: the app offers a model and then fails
       # halfway through a download.
+      #
+      # Every source, not the first one that answers. This used to `break` out of the URL list on
+      # the first success, which is always the upstream `url` — so a `mirror` was listed, published,
+      # and never once fetched. Twenty-eight of fifty-six mirror entries were checked by hand the
+      # day this was rewritten and two models were broken: the only voice in the catalogue had both
+      # of its mirrors 404ing, because the release asset was uploaded under a different name than
+      # the manifest asks for and `summo.techainer.com` proxies that same release; and three of
+      # `gipformer-65m`'s pointed at a Hugging Face repository that had been renamed, so they
+      # resolved to a repository now holding *different* weights.
+      #
+      # Which matters precisely when it is needed. The mirrors exist because GitHub and Hugging Face
+      # are regularly unreachable from Vietnam — a mirror nobody checks is a fallback that works
+      # until the day it has to.
       - name: Fetch and verify
         run: |
           python3 - <<'PY'
           import glob, hashlib, json, sys, urllib.request
 
+          # The primary is downloaded whole and hashed. A mirror is checked by its first chunk and
+          # its total length, which is what separates "this URL answers" from "this URL answers
+          # with the file the manifest describes" — a renamed upstream repository serving a
+          # same-named file is exactly the case a status code cannot see. Whole-file hashing every
+          # mirror would triple a job that already moves several gigabytes.
+          PREFIX = 64 * 1024
+
+          def get(url, first=None, tries=3):
+              """Body, and the file's total length when the server reports one."""
+              last = None
+              for attempt in range(tries):
+                  request = urllib.request.Request(url)
+                  if first is not None:
+                      request.add_header("Range", f"bytes=0-{first - 1}")
+                  try:
+                      with urllib.request.urlopen(request, timeout=300) as response:
+                          body = response.read()
+                          content_range = response.headers.get("Content-Range")
+                          if content_range and "/" in content_range:
+                              total = content_range.rsplit("/", 1)[1]
+                              total = int(total) if total.isdigit() else None
+                          else:
+                              # No range served: this is the whole file, whatever we asked for.
+                              total = len(body)
+                          return body, total
+                  except Exception as error:  # noqa: BLE001
+                      last = error
+              raise last
+
           failures = []
           for path in sorted(glob.glob("models/*.json")):
               manifest = json.load(open(path))
               for entry in manifest["files"]:
-                  urls = [entry["url"], *entry.get("mirror", [])]
-                  for url in urls:
-                      try:
-                          with urllib.request.urlopen(url, timeout=120) as response:
-                              body = response.read()
-                          break
-                      except Exception as error:  # noqa: BLE001
-                          print(f"  {url}: {error}")
-                  else:
-                      failures.append(f"{manifest['id']}/{entry['name']}: no source reachable")
+                  name = f"{manifest['id']}/{entry['name']}"
+
+                  try:
+                      body, _ = get(entry["url"])
+                  except Exception as error:  # noqa: BLE001
+                      failures.append(f"{name}: url unreachable: {error}")
                       continue
 
                   digest = hashlib.sha256(body).hexdigest()
                   if digest != entry["sha256"]:
-                      failures.append(
-                          f"{manifest['id']}/{entry['name']}: digest {digest} != {entry['sha256']}"
-                      )
-                  elif len(body) != entry["size"]:
-                      failures.append(
-                          f"{manifest['id']}/{entry['name']}: size {len(body)} != {entry['size']}"
-                      )
-                  else:
-                      print(f"ok {manifest['id']}/{entry['name']}")
+                      failures.append(f"{name}: url digest {digest} != {entry['sha256']}")
+                      continue
+                  if len(body) != entry["size"]:
+                      failures.append(f"{name}: url size {len(body)} != {entry['size']}")
+                      continue
+                  print(f"ok {name} url")
+
+                  for mirror in entry.get("mirror", []):
+                      try:
+                          head, total = get(mirror, first=PREFIX)
+                      except Exception as error:  # noqa: BLE001
+                          failures.append(f"{name}: mirror unreachable: {mirror}: {error}")
+                          continue
+                      if total is not None and total != entry["size"]:
+                          failures.append(
+                              f"{name}: mirror is {total} bytes, manifest says {entry['size']}: {mirror}"
+                          )
+                      elif head != body[: len(head)]:
+                          failures.append(
+                              f"{name}: mirror serves different bytes than the manifest describes: {mirror}"
+                          )
+                      else:
+                          print(f"ok {name} mirror {mirror}")
 
           for failure in failures:
               print(f"FAIL {failure}")

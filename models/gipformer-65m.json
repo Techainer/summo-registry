@@ -45,8 +45,7 @@
       "url": "https://github.com/Techainer/summo-models/releases/download/gipformer-65m-v1/encoder-epoch-35-avg-6.int8.onnx",
       "variant": "int8",
       "mirror": [
-        "https://summo.techainer.com/models/gipformer-65m-v1/encoder-epoch-35-avg-6.int8.onnx",
-        "https://huggingface.co/g-group-ai-lab/gipformer-65M-rnnt/resolve/main/encoder-epoch-35-avg-6.int8.onnx"
+        "https://summo.techainer.com/models/gipformer-65m-v1/encoder-epoch-35-avg-6.int8.onnx"
       ]
     },
     {
@@ -56,8 +55,7 @@
       "url": "https://github.com/Techainer/summo-models/releases/download/gipformer-65m-v1/decoder-epoch-35-avg-6.int8.onnx",
       "variant": "int8",
       "mirror": [
-        "https://summo.techainer.com/models/gipformer-65m-v1/decoder-epoch-35-avg-6.int8.onnx",
-        "https://huggingface.co/g-group-ai-lab/gipformer-65M-rnnt/resolve/main/decoder-epoch-35-avg-6.int8.onnx"
+        "https://summo.techainer.com/models/gipformer-65m-v1/decoder-epoch-35-avg-6.int8.onnx"
       ]
     },
     {
@@ -67,8 +65,7 @@
       "url": "https://github.com/Techainer/summo-models/releases/download/gipformer-65m-v1/joiner-epoch-35-avg-6.int8.onnx",
       "variant": "int8",
       "mirror": [
-        "https://summo.techainer.com/models/gipformer-65m-v1/joiner-epoch-35-avg-6.int8.onnx",
-        "https://huggingface.co/g-group-ai-lab/gipformer-65M-rnnt/resolve/main/joiner-epoch-35-avg-6.int8.onnx"
+        "https://summo.techainer.com/models/gipformer-65m-v1/joiner-epoch-35-avg-6.int8.onnx"
       ]
     },
     {
