@@ -91,5 +91,27 @@ jobs:
               print(f"FAIL {id} has a manifest but is not in index.json")
           for id in sorted(extra):
               print(f"FAIL {id} is in index.json but has no manifest")
-          sys.exit(1 if missing or extra else 0)
+
+          # The same id in two files is not the same entry.
+          #
+          # This checked that the two *sets of ids* matched and nothing about what the entries say,
+          # so every field the index copies from a manifest — name, licence, languages, size, the
+          # description a user reads on the card before downloading anything — could drift without
+          # a word. It did, the first time somebody edited a manifest: a model's description said
+          # "the fastest of them here" on the card and something else in the file behind it.
+          #
+          # Only the shared keys. The index carries less than a manifest on purpose; what it does
+          # carry has to be the same thing.
+          drift = 0
+          for entry in json.load(open("index.json"))["models"]:
+              path = f"models/{entry['id']}.json"
+              if not os.path.exists(path):
+                  continue
+              manifest = json.load(open(path))
+              for key, value in entry.items():
+                  if key in manifest and manifest[key] != value:
+                      drift += 1
+                      print(f"FAIL {entry['id']}.{key} differs between index.json and {path}")
+
+          sys.exit(1 if missing or extra or drift else 0)
           PY

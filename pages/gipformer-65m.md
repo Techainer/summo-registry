@@ -1,8 +1,8 @@
-# Gipformer 65M · Vietnamese
+# Gipformer 65M · Vietnamese (thay bằng 1.5)
 
 `gipformer-65m`
 
-The Vietnamese model Summo defaults to. A 65M-parameter Zipformer transducer exported to INT8, trained on Vietnamese telephony and meeting speech. 2.4% WER on Fleurs VI against Whisper tiny's 65.5%, in a fifth of the memory — which is the whole reason a specialised model is worth having over a multilingual one.
+Superseded by gipformer-1.5-68m, which measures better on every axis on the same hundred FLEURS vi clips — 8.3% WER and 6.2% CER against 8.6% and 6.8%, at a slightly lower real-time factor. Kept listed because it is what earlier releases installed and removing it would strand them. Its own description used to say it was the model Summo defaults to, which stopped being true the day the newer one was measured.
 
 | | |
 |---|---|
@@ -27,16 +27,15 @@ Real-time factor, measured — below 1.0 keeps up with live audio:
 
 | Machine | RTF |
 |---|---|
-| `cpu_x86_avx2_4t` | 0.060 |
 | `cpu_x86_avx512vnni_4t` | 0.023 |
-| `cpu_x86_avx512vnni_8t` | 0.019 |
+| `cpu_x86_avx512vnni_8t` | 0.018 |
 
 Accuracy, measured — word error rate, lower is better:
 
 | Benchmark | Score |
 |---|---|
-| `cer_fleurs_vi` | 6.7% |
-| `wer_fleurs_vi` | 8.5% |
+| `cer_fleurs_vi` | 6.6% |
+| `wer_fleurs_vi` | 8.3% |
 
 Accelerators: cpu, coreml.
 

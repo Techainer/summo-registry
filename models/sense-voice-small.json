@@ -17,7 +17,7 @@
   "redistributable": false,
   "gated": false,
   "size_bytes": 239549735,
-  "description": "Chinese, Cantonese, Japanese, Korean and English in one model, and the fastest of them here. Ships as an int8 export and a full-precision one; the app fetches whichever fits this machine, which is why the size on the card is not a single fixed number. No Vietnamese — for a Vietnamese meeting this is the wrong model, however good it is at the five it does cover.",
+  "description": "Chinese, Cantonese, Japanese, Korean and English in one model, and the most accurate English here: 7.5% WER and 3.5% CER on a hundred FLEURS en clips, ahead of every English-only model in this registry. Measured on the int8 export, which is what most machines fetch. Those figures were blank until somebody ran the benchmark, and a blank is not neutral — Summo scores an unmeasured model as if it got every word wrong, so the best English model here was ranked last for English. Ships as an int8 export and a full-precision one; the app fetches whichever fits this machine, which is why the size on the card is not a single fixed number. No Vietnamese — for a Vietnamese meeting this is the wrong model, however good it is at the five it does cover.",
   "profile": {
     "rss_mb": {
       "idle": 300,
@@ -33,7 +33,10 @@
       "finalize_p50": 300,
       "finalize_p95": 800
     },
-    "quality": {},
+    "quality": {
+      "wer_fleurs_en": 0.075,
+      "cer_fleurs_en": 0.035
+    },
     "accel": [
       "cpu",
       "coreml",

@@ -28,16 +28,17 @@ Real-time factor, measured — below 1.0 keeps up with live audio:
 | Machine | RTF |
 |---|---|
 | `cpu_x86_avx2_4t` | 0.300 |
-| `cpu_x86_avx512vnni_4t` | 0.138 |
-| `cpu_x86_avx512vnni_8t` | 0.120 |
+| `cpu_x86_avx512vnni_4t` | 0.081 |
+| `cpu_x86_avx512vnni_8t` | 0.074 |
 
 Accuracy, measured — word error rate, lower is better:
 
 | Benchmark | Score |
 |---|---|
+| `cer_fleurs_en` | 6.0% |
 | `cer_fleurs_vi` | 45.1% |
+| `wer_fleurs_en` | 13.2% |
 | `wer_fleurs_vi` | 67.6% |
-| `wer_whisper_testset_en` | 4.5% |
 
 Accelerators: cpu, coreml, cuda.
 

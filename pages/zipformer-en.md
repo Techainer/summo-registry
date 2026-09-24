@@ -2,7 +2,7 @@
 
 `zipformer-en`
 
-English, and fast enough to put words on screen while somebody is still talking. A transducer rather than an encoder-decoder, which is what makes it usable live: it commits an utterance as soon as the speaker stops instead of re-reading the whole segment.
+English, 15.9% WER on a hundred FLEURS en clips — usable, and behind the two models above it at a similar size. It was published here at 59.7% with a description calling it unusable; that measurement was taken while Summo handed models audio at whatever level it was recorded at, and this model is one of the ones that could not read quiet speech. The recorder levels every utterance now. Trained on LibriSpeech, which is read audiobooks, and the remaining gap to the GigaSpeech model is that. See docs/benchmarks.md.
 
 | | |
 |---|---|
@@ -23,7 +23,19 @@ Redistributable under its licence, so Summo mirrors it. The checksums below are 
 
 Memory: about 200 MB resident, 900 MB at peak. Needs at least 1024 MB free.
 
-Nobody has measured how fast this runs yet, and the registry says so rather than guessing.
+Real-time factor, measured — below 1.0 keeps up with live audio:
+
+| Machine | RTF |
+|---|---|
+| `cpu_x86_avx512vnni_4t` | 0.020 |
+| `cpu_x86_avx512vnni_8t` | 0.020 |
+
+Accuracy, measured — word error rate, lower is better:
+
+| Benchmark | Score |
+|---|---|
+| `cer_fleurs_en` | 8.5% |
+| `wer_fleurs_en` | 15.9% |
 
 Accelerators: cpu, coreml.
 

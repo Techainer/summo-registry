@@ -23,7 +23,19 @@ Redistributable under its licence, so Summo mirrors it. The checksums below are 
 
 Memory: about 300 MB resident, 900 MB at peak. Needs at least 1536 MB free.
 
-Nobody has measured how fast this runs yet, and the registry says so rather than guessing.
+Real-time factor, measured — below 1.0 keeps up with live audio:
+
+| Machine | RTF |
+|---|---|
+| `cpu_x86_avx512vnni_4t` | 0.148 |
+| `cpu_x86_avx512vnni_8t` | 0.134 |
+
+Accuracy, measured — word error rate, lower is better:
+
+| Benchmark | Score |
+|---|---|
+| `cer_fleurs_en` | 4.9% |
+| `wer_fleurs_en` | 10.7% |
 
 Accelerators: cpu, coreml, cuda.
 
