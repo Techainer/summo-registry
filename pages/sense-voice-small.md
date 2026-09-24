@@ -2,7 +2,7 @@
 
 `sense-voice-small`
 
-Chinese, Cantonese, Japanese, Korean and English in one model, and the most accurate English here: 7.5% WER and 3.5% CER on a hundred FLEURS en clips, ahead of every English-only model in this registry. Measured on the int8 export, which is what most machines fetch. Those figures were blank until somebody ran the benchmark, and a blank is not neutral — Summo scores an unmeasured model as if it got every word wrong, so the best English model here was ranked last for English. Ships as an int8 export and a full-precision one; the app fetches whichever fits this machine, which is why the size on the card is not a single fixed number. No Vietnamese — for a Vietnamese meeting this is the wrong model, however good it is at the five it does cover.
+Chinese, Cantonese, Japanese, Korean and English in one model, and the most accurate English here: 7.4% WER and 3.4% CER on a hundred FLEURS en clips, ahead of every English-only model in this registry. Those figures were blank until somebody ran the benchmark, and a blank is not neutral — Summo scores an unmeasured model as if it got every word wrong, so the best English model here was ranked last for English. Ships as an int8 export and a full-precision one; the app takes full precision wherever it fits and drops to int8 only on a machine without the memory, which is why the size on the card is not a single fixed number. The figures above are the full-precision export, the one most machines get; int8 scores 7.5% and 3.5% on the same clips and runs about a third faster, so the trade is speed rather than accuracy here. No Vietnamese — for a Vietnamese meeting this is the wrong model, however good it is at the five it does cover.
 
 | | |
 |---|---|
@@ -27,15 +27,15 @@ Real-time factor, measured — below 1.0 keeps up with live audio:
 
 | Machine | RTF |
 |---|---|
-| `cpu_x86_avx512vnni_4t` | 0.062 |
-| `cpu_x86_avx512vnni_8t` | 0.044 |
+| `cpu_x86_avx512vnni_4t` | 0.047 |
+| `cpu_x86_avx512vnni_8t` | 0.035 |
 
 Accuracy, measured — word error rate, lower is better:
 
 | Benchmark | Score |
 |---|---|
-| `cer_fleurs_en` | 3.5% |
-| `wer_fleurs_en` | 7.5% |
+| `cer_fleurs_en` | 3.4% |
+| `wer_fleurs_en` | 7.4% |
 
 Accelerators: cpu, coreml, cuda.
 
