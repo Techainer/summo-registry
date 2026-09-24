@@ -85,11 +85,21 @@ jobs:
           # mirror would triple a job that already moves several gigabytes.
           PREFIX = 64 * 1024
 
+          # The app identifies itself as `summo/<version>`, and this has to look like the app.
+          #
+          # The first run of this check reported `summo.techainer.com` as 403 Forbidden on every
+          # file — twenty-four of them — and the mirror was fine. Cloudflare rejects the default
+          # `Python-urllib/3.x` and serves `summo/0.23.0`, `curl/8.5.0` and no user agent at all.
+          # A checker blocked by its own CDN reports an outage that does not exist, and a checker
+          # allowed where the app is blocked reports a mirror that does not work. Same shape of
+          # string as the app sends is what makes this measure the thing it is about.
+          AGENT = "summo/ci"
+
           def get(url, first=None, tries=3):
               """Body, and the file's total length when the server reports one."""
               last = None
               for attempt in range(tries):
-                  request = urllib.request.Request(url)
+                  request = urllib.request.Request(url, headers={"User-Agent": AGENT})
                   if first is not None:
                       request.add_header("Range", f"bytes=0-{first - 1}")
                   try:
