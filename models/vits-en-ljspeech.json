@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "vits-en-ljspeech",
+  "name": "LJ Speech · English voice",
+  "task": "tts",
+  "mode": "batch",
+  "runtime": "sherpa-onnx/vits",
+  "langs": [
+    "en"
+  ],
+  "license": "Public domain",
+  "attribution": "rhasspy's piper, trained by Bryce Beattie on the LJ Speech Dataset (public domain); ONNX export published by k2-fsa for sherpa-onnx",
+  "redistributable": true,
+  "size_bytes": 67169893,
+  "description": "One English voice, for reading a translated meeting back aloud — `summo dub` lays it over the original recording. 22.05 kHz, which is the full-bandwidth end of what these voices publish. Measured on this codebase: RTF 0.061 on 4 threads, 235 MB peak while speaking. The training data is public domain, which is rarer among English voices than it sounds — most of the published ones sit on corpora licensed for research only.",
+  "profile": {
+    "rss_mb": {
+      "idle": 60,
+      "peak": 240
+    },
+    "min_ram_mb": 512,
+    "rtf": {
+      "cpu_x86_avx512vnni_4t": 0.061
+    },
+    "quality": {},
+    "accel": [
+      "cpu"
+    ]
+  },
+  "files": [
+    {
+      "name": "vits-piper-en_US-ljspeech-medium.tar.bz2",
+      "sha256": "3dfb4b759d8be032a4903a9538d128b0fda2a06ab1de6cbc2d93a97e2dd83dba",
+      "size": 67169893,
+      "archive": "tar-bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-en_US-ljspeech-medium.tar.bz2",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/vits-en-ljspeech-v1/vits-piper-en_US-ljspeech-medium.tar.bz2",
+        "https://summo.techainer.com/models/vits-en-ljspeech-v1/vits-piper-en_US-ljspeech-medium.tar.bz2"
+      ]
+    }
+  ],
+  "params": {
+    "dir": "vits-piper-en_US-ljspeech-medium.tar.bz2/vits-piper-en_US-ljspeech-medium"
+  }
+}

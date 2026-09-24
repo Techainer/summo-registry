@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "id": "vits-zh-aishell3",
+  "name": "AISHELL-3 · 中文语音",
+  "task": "tts",
+  "mode": "batch",
+  "runtime": "sherpa-onnx/vits",
+  "langs": [
+    "zh"
+  ],
+  "license": "Apache-2.0",
+  "attribution": "k2-fsa/icefall, trained on AISHELL-3 (Beijing Shell Shell, Apache-2.0); ONNX export published by k2-fsa for sherpa-onnx",
+  "redistributable": true,
+  "size_bytes": 31559701,
+  "description": "One Mandarin voice, for reading a translated meeting back aloud — `summo dub` lays it over the original recording. The smallest voice here at 32 MB, and the fastest: RTF 0.030 on 4 threads, 158 MB peak while speaking. It synthesises at 8 kHz, which sounds like a phone call beside the 22 kHz English and Vietnamese voices — that is the trade for a Mandarin voice on a licence that can be redistributed, and it is stated here rather than discovered on playback. Pronounces numbers and dates from its own lexicon, so a line with neither is not where it is weakest.",
+  "profile": {
+    "rss_mb": {
+      "idle": 60,
+      "peak": 160
+    },
+    "min_ram_mb": 512,
+    "rtf": {
+      "cpu_x86_avx512vnni_4t": 0.03
+    },
+    "quality": {},
+    "accel": [
+      "cpu"
+    ]
+  },
+  "files": [
+    {
+      "name": "vits-icefall-zh-aishell3.tar.bz2",
+      "sha256": "ab468db3a3308cdd861495e0db2f25d79418a0c00639f74944c7cdf5dd8c6ec1",
+      "size": 31559701,
+      "archive": "tar-bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2",
+      "mirror": [
+        "https://github.com/Techainer/summo-models/releases/download/vits-zh-aishell3-v1/vits-icefall-zh-aishell3.tar.bz2",
+        "https://summo.techainer.com/models/vits-zh-aishell3-v1/vits-icefall-zh-aishell3.tar.bz2"
+      ]
+    }
+  ],
+  "params": {
+    "dir": "vits-icefall-zh-aishell3.tar.bz2/vits-icefall-zh-aishell3"
+  }
+}

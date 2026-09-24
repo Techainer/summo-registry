@@ -14,7 +14,9 @@ Everything here is generated from the manifests in `models/`. Speech recognition
 | [SenseVoice small · 中文 日本語 한국어 English](sense-voice-small.md) | speech recognition | 228 MB | FunASR Model Open Source License Agreement v1.1 | upstream |
 | [Silero VAD v5](silero-vad-v5.md) | voice activity detection | 2.2 MB | MIT | mirrored |
 | [SMALL100 · translation, 100 languages](small100.md) | translation | 583 MB | MIT | mirrored |
+| [LJ Speech · English voice](vits-en-ljspeech.md) | speech synthesis | 64 MB | Public domain | mirrored |
 | [VAIS 1000 · giọng tiếng Việt](vits-vi-vais1000.md) | speech synthesis | 64 MB | MIT | mirrored |
+| [AISHELL-3 · 中文语音](vits-zh-aishell3.md) | speech synthesis | 30 MB | Apache-2.0 | mirrored |
 | [Whisper base · 99 languages](whisper-base.md) | speech recognition | 153 MB | MIT | mirrored |
 | [Whisper tiny (99 languages)](whisper-tiny.md) | speech recognition | 99 MB | MIT | mirrored |
 | [Zipformer · English](zipformer-en.md) | speech recognition | 67 MB | Apache-2.0 | mirrored |

@@ -259,6 +259,18 @@
       "description": "The default translator, and the small one: 330M parameters and 611 MB installed, against 806 MB for the 1B alternative — and 244 ms a line, which is the fastest of anything measured. It is the only translation model here not built on a 262 000-token embedding table, which is why it can be small at all: quantizing the 1B harder barely helps, because the table dominates the file. Exported as a separate encoder and decoder, so the twelve-layer encoder runs once per line instead of once per generated token — worth 2x on its own. MIT, so unlike the MiLMMT weights it may be redistributed freely. The trade is accuracy: on Vietnamese meeting speech it makes lexical errors the 1B does not, while still producing complete, on-topic sentences in the right language. Still far ahead of any general model of comparable size — Qwen3-0.6B repeated one phrase forty times on the same test and returned nothing at all for English into Vietnamese."
     },
     {
+      "id": "vits-en-ljspeech",
+      "name": "LJ Speech · English voice",
+      "task": "tts",
+      "mode": "batch",
+      "license": "Public domain",
+      "langs": [
+        "en"
+      ],
+      "size_bytes": 67169893,
+      "description": "One English voice, for reading a translated meeting back aloud — `summo dub` lays it over the original recording. 22.05 kHz, which is the full-bandwidth end of what these voices publish. Measured on this codebase: RTF 0.061 on 4 threads, 235 MB peak while speaking. The training data is public domain, which is rarer among English voices than it sounds — most of the published ones sit on corpora licensed for research only."
+    },
+    {
       "id": "vits-vi-vais1000",
       "name": "VAIS 1000 · giọng tiếng Việt",
       "task": "tts",
@@ -269,6 +281,18 @@
       ],
       "size_bytes": 67154040,
       "description": "One Vietnamese voice, for reading a translated meeting back aloud — `summo dub` lays it over the original recording. Ships as a directory rather than a file: the weights are 63 MB and the rest is the phoneme data piper needs to pronounce anything at all."
+    },
+    {
+      "id": "vits-zh-aishell3",
+      "name": "AISHELL-3 · 中文语音",
+      "task": "tts",
+      "mode": "batch",
+      "license": "Apache-2.0",
+      "langs": [
+        "zh"
+      ],
+      "size_bytes": 31559701,
+      "description": "One Mandarin voice, for reading a translated meeting back aloud — `summo dub` lays it over the original recording. The smallest voice here at 32 MB, and the fastest: RTF 0.030 on 4 threads, 158 MB peak while speaking. It synthesises at 8 kHz, which sounds like a phone call beside the 22 kHz English and Vietnamese voices — that is the trade for a Mandarin voice on a licence that can be redistributed, and it is stated here rather than discovered on playback. Pronounces numbers and dates from its own lexicon, so a line with neither is not where it is weakest."
     },
     {
       "id": "whisper-base",
