@@ -189,7 +189,7 @@
         "en"
       ],
       "size_bytes": 239549735,
-      "description": "Chinese, Cantonese, Japanese, Korean and English in one model, and the most accurate English here: 7.4% WER and 3.4% CER on a hundred FLEURS en clips, ahead of every English-only model in this registry. Those figures were blank until somebody ran the benchmark, and a blank is not neutral — Summo scores an unmeasured model as if it got every word wrong, so the best English model here was ranked last for English. Ships as an int8 export and a full-precision one; the app takes full precision wherever it fits and drops to int8 only on a machine without the memory, which is why the size on the card is not a single fixed number. The figures above are the full-precision export, the one most machines get; int8 scores 7.5% and 3.5% on the same clips and runs about a third faster, so the trade is speed rather than accuracy here. No Vietnamese — for a Vietnamese meeting this is the wrong model, however good it is at the five it does cover."
+      "description": "Chinese, Cantonese, Japanese, Korean and English in one model, and the most accurate English here: 7.4% WER and 3.4% CER on a hundred FLEURS en clips, ahead of every English-only model in this registry. Those figures were blank until somebody ran the benchmark, and a blank is not neutral — Summo scores an unmeasured model as if it got every word wrong, so the best English model here was ranked last for English. Ships as an int8 export and a full-precision one; the app takes full precision wherever it fits and drops to int8 only on a machine without the memory, which is why the size on the card is not a single fixed number. The figures above are the full-precision export, the one most machines get; int8 scores 7.5% and 3.5% on the same clips and runs about a third faster, so the trade is speed rather than accuracy here. No Vietnamese — for a Vietnamese meeting this is the wrong model, however good it is at the five it does cover. Measured on Mandarin as well as English: 7.4% character error on 100 FLEURS zh clips, and it never once answered in traditional characters where the reference was simplified — which is the thing that makes the alternatives here unusable for a Chinese meeting."
     },
     {
       "id": "silero-vad-v5",
@@ -304,7 +304,7 @@
         "*"
       ],
       "size_bytes": 160609290,
-      "description": "One step up from tiny: the same 99 languages, noticeably steadier on accents and on speech with music behind it. Runs after a recording rather than during one, so it is the model to choose when accuracy matters more than seeing words appear as they are said."
+      "description": "One step up from tiny: the same 99 languages, noticeably steadier on accents and on speech with music behind it. Runs after a recording rather than during one, so it is the model to choose when accuracy matters more than seeing words appear as they are said. Not a Chinese model, whatever its language list says. Measured on 100 FLEURS zh clips: 44.2% character error, 31.7% after converting its output to simplified — it answered in traditional characters on 66 of the 100 clips. sense-voice-small scores 7.4% on the same clips."
     },
     {
       "id": "whisper-tiny",
@@ -316,7 +316,7 @@
         "*"
       ],
       "size_bytes": 103609903,
-      "description": "Smallest multilingual model. Good on English, weak on Vietnamese — see the measured numbers before choosing it for a language a specialised model covers. Ships full precision and int8, and takes full precision: measured on the same hundred FLEURS en clips, quantising this one costs seven and a half points of word error rate — 20.6% against 13.2% — and is not even faster. The int8 build is there for a machine without the memory for the other, which is the only reason to take it."
+      "description": "Smallest multilingual model. Good on English, weak on Vietnamese — see the measured numbers before choosing it for a language a specialised model covers. Ships full precision and int8, and takes full precision: measured on the same hundred FLEURS en clips, quantising this one costs seven and a half points of word error rate — 20.6% against 13.2% — and is not even faster. The int8 build is there for a machine without the memory for the other, which is the only reason to take it. Not a Chinese model, whatever its language list says. Measured on 100 FLEURS zh clips: 51.8% character error, and 43.1% even after converting its output to simplified — it answered in traditional characters on 45 of the 100 clips, so a simplified meeting comes back partly in a script nobody asked for. sense-voice-small scores 7.4% on the same clips."
     },
     {
       "id": "zipformer-en",

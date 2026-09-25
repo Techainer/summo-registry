@@ -2,7 +2,7 @@
 
 `whisper-base`
 
-One step up from tiny: the same 99 languages, noticeably steadier on accents and on speech with music behind it. Runs after a recording rather than during one, so it is the model to choose when accuracy matters more than seeing words appear as they are said.
+One step up from tiny: the same 99 languages, noticeably steadier on accents and on speech with music behind it. Runs after a recording rather than during one, so it is the model to choose when accuracy matters more than seeing words appear as they are said. Not a Chinese model, whatever its language list says. Measured on 100 FLEURS zh clips: 44.2% character error, 31.7% after converting its output to simplified — it answered in traditional characters on 66 of the 100 clips. sense-voice-small scores 7.4% on the same clips.
 
 | | |
 |---|---|
@@ -35,6 +35,7 @@ Accuracy, measured — word error rate, lower is better:
 | Benchmark | Score |
 |---|---|
 | `cer_fleurs_en` | 4.9% |
+| `cer_fleurs_zh` | 44.2% |
 | `wer_fleurs_en` | 10.7% |
 
 Accelerators: cpu, coreml, cuda.

@@ -2,7 +2,7 @@
 
 `whisper-tiny`
 
-Smallest multilingual model. Good on English, weak on Vietnamese — see the measured numbers before choosing it for a language a specialised model covers. Ships full precision and int8, and takes full precision: measured on the same hundred FLEURS en clips, quantising this one costs seven and a half points of word error rate — 20.6% against 13.2% — and is not even faster. The int8 build is there for a machine without the memory for the other, which is the only reason to take it.
+Smallest multilingual model. Good on English, weak on Vietnamese — see the measured numbers before choosing it for a language a specialised model covers. Ships full precision and int8, and takes full precision: measured on the same hundred FLEURS en clips, quantising this one costs seven and a half points of word error rate — 20.6% against 13.2% — and is not even faster. The int8 build is there for a machine without the memory for the other, which is the only reason to take it. Not a Chinese model, whatever its language list says. Measured on 100 FLEURS zh clips: 51.8% character error, and 43.1% even after converting its output to simplified — it answered in traditional characters on 45 of the 100 clips, so a simplified meeting comes back partly in a script nobody asked for. sense-voice-small scores 7.4% on the same clips.
 
 | | |
 |---|---|
@@ -37,6 +37,7 @@ Accuracy, measured — word error rate, lower is better:
 |---|---|
 | `cer_fleurs_en` | 6.0% |
 | `cer_fleurs_vi` | 45.1% |
+| `cer_fleurs_zh` | 51.8% |
 | `wer_fleurs_en` | 13.2% |
 | `wer_fleurs_vi` | 67.6% |
 
