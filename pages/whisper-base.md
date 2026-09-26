@@ -35,8 +35,10 @@ Accuracy, measured — word error rate, lower is better:
 | Benchmark | Score |
 |---|---|
 | `cer_fleurs_en` | 4.9% |
+| `cer_fleurs_vi` | 27.4% |
 | `cer_fleurs_zh` | 44.2% |
 | `wer_fleurs_en` | 10.7% |
+| `wer_fleurs_vi` | 43.7% |
 
 Accelerators: cpu, coreml, cuda.
 
